@@ -1,0 +1,84 @@
+/* 웹에서 외부 스타일 시트를 가져온다. */
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+
+/* 전체 영역에 스타일 정의 */
+* {
+	font-family: "Nanum Gothic";
+}
+
+/* 하이퍼링크 */
+a {
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	color: #bbbbbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* 네비게이션 영역 */
+/* 배경 색상 */
+.navbar-default {
+	background-color: #000000;
+	border-color: #000000;
+}
+/* 내비게이션 제목 색상 */
+.navbar-default .navbar-brand {
+	color: #ffffff;
+}
+/* 내비게이션 제목에 마우스를 올렸을 때, 내비게이션 제목이 포커스를 가졌을 때 */
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+	background-color: transparent; /* 투명 */
+	color: tomato;
+}
+/* 선택된 내비게이션 */
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	background-color: #000000;
+	color: yellowgreen;
+}
+/* 내비게이션 글자에 마우스를 올렸을 때 */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	background-color: #000000;
+	color: hotpink;
+}
+/* 해상도가 클 때 드롭다운이 열렸을 때 메뉴 */
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+	background-color: #ffffff;
+	color: skyblue;
+	text-decoration: none;
+}
+/* 해상도가 클 때 드롭다운이 열렸을 때 아이템 */
+.navbar-default .navbar-nav > .open > .dropdown-menu > li > a {
+	color: #000000;
+}
+.navbar-default .navbar-nav > .open > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > .open > .dropdown-menu > li > a:focus {
+	background-color: #000000;
+	color: yellow;
+}
+
+/* 내비게이션 기본 색상 */
+.navbar-default .navbar-nav {
+	color: #ffffff;
+}
+
+/* 해상도가 작을 때 드롭다운 아이템에 마우스를 올렸을 때 */
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav > .open > .dropdown-menu > li > a {
+		color: #ffffff;
+	}
+	.navbar-default .navbar-nav > .open > .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav > .open > .dropdown-menu > li > a:focus {
+		background-color: yellowgreen;
+		color: yellow;
+	}
+}
+
+
+
