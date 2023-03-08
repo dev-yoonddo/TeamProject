@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- 화면 최적화 -->
+<meta name="viewport" content="width-device-width", initial-scale="1">
 <meta charset="UTF-8">
+
 <title>피자가게</title>
 	<link rel="icon" href="./images/logo-favicon.png">
-	<link href="mainPage.css" rel="stylesheet">
+	<link rel="stylesheet" href="mainPage.css?after">
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -38,96 +41,75 @@
     
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_481df0d1cbfe4f409885780076872d2a {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-            </style>
 	<!-- map -->
 
-
-
-
-
 </head>
+
 <body>
 	<!-- header start-->
 	<header>
-		<div class="left">
-			<input type="image" src="./images/flowerlogo.png" alt="로고" width="330px" height="100px">
+	<% 
+	// 세션값 가져오기
+	String id = (String) session.getAttribute("userID"); // Object 타입이므로 다운캐스팅
+	%>
+	<nav class="navmenu">
+		<div class="navmenu-left">
+			<input type="image" src="./images/smilepizza.PNG" alt="로고" width="250px" height="70px" style="align-items: center;">
 		</div>
-		<ul class="login">
-		<% 
-		// 세션값 가져오기
-		String id = (String) session.getAttribute("userID"); // Object 타입이므로 다운캐스팅
-		%>
-		<%=id %> 님이 로그인하였습니다. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="button" onclick="location.href='sessionLogout.jsp'" value="LogOut" />
-		</ul>
-	</header>
+		
+		<div class="navmenu-right">	
+			<ul class="login">
+				<li style="font-size: 10pt;"><%=id %> 님이 로그인하였습니다.&nbsp&nbsp&nbsp&nbsp</li>
+				<li ><button type="button" class="btn btn-outline-gray" id="btn" onclick="location.href='sessionLogout.jsp'">로그아웃</button></li>
+			</ul>
+		</div>
+	</nav>
+	</header>	
 	<!-- header end-->
+	
 	
 	<!-- section start-->
 	<section>
-	
+		<div class="floatingBanner">
+	    	<a href="/event/viewHtml?seq=1225&amp;gubun=E0200">
+	        	<img src="images/floatBN.png">
+	        </a>
+	        <button class="btn-close"></button>
+	    </div>
+	    <script>
+	    $('.floatingBanner .btn-close').on('click', function(){
+	        $(this).parents('.floatingBanner').hide();
+	    });
+	    </script>
 		<!-- 메인화면 슬라이드 -->
-		<br/><div class="img">	
-			
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" align="center">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          </ol>
-          
-          <div class="carousel-inner" role="listbox" align="center">
+        
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" align="center" style="width: 1600px; height: 500px;">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="./images/main2.png" alt="Second slide" width="1500px" height="1000px">
+              <img class="d-block img-fluid" src="./images/main2.png" alt="First slide">
             </div>
             
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="./images/main1.jpg" alt="Second slide" width="1500px" height="1000px">
+              <img class="d-block img-fluid" src="./images/main1.jpg" alt="Second slide">
             </div>
-          </div>
-          
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-          
-        </div>
-       </div>
-       
+          </div><br>
+       <script type="text/javascript" src="./js/loginOK.js"></script>
+		<!-- 주문하기 버튼 -->
+		<div class="orderBtn" align="center">
+			<button style= "font-size: 2.0em;" type="button" class="btn btn-secondary btn-lg" mx="auto" onclick="location.href='orderPage.jsp'" >주문하기</button>
+		</div>
 	</section>
 	<!-- section end-->
-	
-	
-	
-	
-	
+
+
 	<!-- footer start-->
-	<br/><footer>
-	
-		<!-- 주문하기 버튼 -->
-		<div class="top" align="center">
-			<button style= "font-size: 3.0em" type="button" class="btn btn-success btn-lg" mx="auto" onclick="location.href='orderPage.jsp'" >주문하기</button>
-		</div>
-		<br/><br/><br/>
+	<footer>
 		<!-- 지도삽입 -->
-		<div class="middle" align="center">
+		<div class="map" align="center">
 			<div class="folium-map" id="map_481df0d1cbfe4f409885780076872d2a" ></div>
 		</div>
 		
 		<!-- 가게 정보 -->
-		<div class="bottom">
+		<div class="location">
 			<div class="container" style="color: white">
 	      		<p class="m-0 text-center">06223 서울특별시 강남구 역삼로1004길 (역삼동, 대박타워) 웃음꽃㈜｜대표이사 : </p>
 	      		<p class="m-0 text-center">사업자 등록번호: 222-22-22222｜통신판매업신고: 강남 1004호｜개인정보 보호책임자 : </p>

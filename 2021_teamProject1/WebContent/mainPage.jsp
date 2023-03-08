@@ -1,22 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
-
+<%@ page import="user.UserDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
+<!-- 화면 최적화 -->
 <meta name="viewport" content="width-device-width", initial-scale="1">
 <meta charset="UTF-8">
 
 <title>피자가게</title>
 	<link rel="icon" href="./images/logo-favicon.png">
-	<link href="mainPage.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/mainPage.css?after">
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
+	<script src="js/scriptForm.js"type="text/javascript"></script>
 
 	<!-- map -->
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -37,77 +34,72 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
-            <meta name="viewport" content="width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_481df0d1cbfe4f409885780076872d2a {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-            </style>
-	<!-- map -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>   
+    <!-- map -->
 
+	
 </head>
 <body>
-	<header>
-	<!-- header start-->
 		
-		<div class = menu>
-			<div class="left">
-				<input type="image" src="./images/smilepizza.PNG" alt="로고" width="330px" height="100px">
-			</div>
-			<div>
-					
-				<ul class="login">
-					<li><button type="button" class="btn btn-outline-gray" onclick="location.href='loginForm.jsp'">로그인</button>&nbsp;</li>
-					<li><button type="button" class="btn btn-outline-gray" onclick="location.href='register.jsp'">회원가입</button></li>
-				</ul>
-				
-			</div>
+	<!-- header start-->
+	<header id="header" style="transform: translateY(0px);">
+	<nav class="navmenu">
+		<div class="navmenu-left">
+			<input type="image" src="./images/smilepizza.PNG" alt="로고" width="250px" height="70px" style="align-items: center;">
 		</div>
-	</header>	
+		
+		<div class="navmenu-right">	
+			<ul class="login">
+				<li class="btn1-login"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='loginForm.jsp'">로그인</button>&nbsp;</li>
+				<li class="btn1-join"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='registerPage.jsp'">회원가입</button></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="category">
+		<ul class="category-list">
+			<!-- <li class="active"><a href="mainPage.jsp">메인</a></li> -->
+			<li class="btn2-pt"><div class="btn2" onclick="location.href='#'">메인</div></li>
+			<li class="btn2-pt"><div class="btn2" onclick="location.href='orderPage.jsp'">주문하기</div></li>
+			<li class="btn2-pt"><div class="btn2" onclick="location.href='eventPage.jsp'">이벤트</div></li>
+			<li class="btn2-pt"><div class="btn2" onclick="location.href='customerPage.jsp'">고객센터</div></li>
+			
+		</ul>
+		<hr>
+	</div>
+	</header>
+
 	<!-- header end-->
 	
 	<!-- section start-->
 	<section>
-	
+		<div class="floatingBanner">
+	    	<a href="/event/viewHtml?seq=1225&amp;gubun=E0200">
+	        	<img src="images/floatBN.png">
+	        </a>
+	        <button class="btn-close"></button>
+	    </div>
+	    
 		<!-- 메인화면 슬라이드 -->
-		<br/><div class="img">	
-			
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" align="center">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          </ol>
-          
-          <div class="carousel-inner" role="listbox" align="center">
+        
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" align="center" style="width: 1530px; height: 500px;">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="./images/main2.png" alt="Second slide" width="1500px" height="1000px">
+              <img class="d-block img-fluid" src="./images/main2.png" alt="First slide">
             </div>
             
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="./images/main1.jpg" alt="Second slide" width="1500px" height="1000px">
+              <img class="d-block img-fluid" src="./images/main1.jpg" alt="Second slide">
             </div>
-          </div>
-          
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-          
-        </div>
-       </div>
+          </div><br>
        
+		<!-- 주문하기 버튼 -->
+		<div class="orderBtn">
+			<div class="order" onclick="LoginOK()">주문하기</div>
+		</div>
+		
+		<!-- 지도삽입 -->
+		<div class="map" align="center">
+			<div class="folium-map" id="map_481df0d1cbfe4f409885780076872d2a" ></div>
+		</div>
 	</section>
 	<!-- section end-->
 	
@@ -116,21 +108,10 @@
 	
 	
 	<!-- footer start-->
-	<br/><footer>
-	
-	<script type="text/javascript" src="./js/loginOK.js"></script>
-		<!-- 주문하기 버튼 -->
-		<div class="top" align="center">
-			<button style= "font-size: 3.0em" type="button" class="btn btn-success btn-lg" mx="auto" onclick="loginOK()" >주문하기</button>
-		</div>
-		<br/><br/><br/>
-		<!-- 지도삽입 -->
-		<div class="middle" align="center">
-			<div class="folium-map" id="map_481df0d1cbfe4f409885780076872d2a" ></div>
-		</div>
+	<footer>
 		
 		<!-- 가게 정보 -->
-		<div class="bottom">
+		<div class="location">
 			<div class="container" style="color: white">
 	      		<p class="m-0 text-center">06223 서울특별시 강남구 역삼로1004길 (역삼동, 대박타워) 웃음꽃㈜｜대표이사 : </p>
 	      		<p class="m-0 text-center">사업자 등록번호: 222-22-22222｜통신판매업신고: 강남 1004호｜개인정보 보호책임자 : </p>
@@ -147,6 +128,12 @@
 	<script src="option/jquery/jquery.min.js"></script>
   	<script src="option/bootstrap/js/bootstrap.bundle.min.js"></script>
   	
+  	<!-- floating banner script -->
+  	<script>
+	    $('.floatingBanner .btn-close').on('click', function(){
+	        $(this).parents('.floatingBanner').hide();
+	    });
+	</script>
   	<!-- map script -->
   	<script>    
     
@@ -207,10 +194,10 @@
         
 
         circle_marker_82f83dc5b5ee47ef8274af526034881d.bindPopup(popup_f40c632e484948cdb6a81cc9b8bb0955)
-        ;
-
-        
-    
+        ; 
 </script>
+
+<script src="https://kit.fontawesome.com/f95555e5d8.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

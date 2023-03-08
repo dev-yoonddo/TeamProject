@@ -21,7 +21,7 @@
 <!--header start-->
 <header>
 	<div class="left">
-			<input type="image" src="./images/smilepizza.PNG" alt="로고" width="330px" height="100px" onclick="location.href='mainPage.jsp'">
+			<input type="image" src="./images/smilepizza.PNG" alt="로고" width="330px" height="100px" onclick="location.href='sessionMain.jsp'">
 	</div>
 </header>
 <!-- header end -->

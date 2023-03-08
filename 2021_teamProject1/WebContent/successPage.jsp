@@ -75,7 +75,7 @@
 			<!-- time -->
 			
 			<div class="top"align="center">
-				<button style= "font-size: 3.0em" type="button" class="btn btn-success btn-lg" mx="auto" onclick="location.href='mainPage.jsp'" >홈으로</button>
+				<button style= "font-size: 3.0em" type="button" class="btn btn-success btn-lg" mx="auto" onclick="location.href='sessionMain.jsp'" >홈으로</button>
 			</div><br/>
 					
 			</fieldset>

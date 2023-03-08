@@ -1,10 +1,10 @@
 <%@page import="java.io.PrintWriter"%>
-<%@page import="com.koreait.Service.RegisterDAO"%>
-
+<%@page import="user.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:useBean id="vo" class="com.koreait.Service.RegisterVO" scope="page"/>
-<jsp:setProperty name="vo" property="userID" />
-<jsp:setProperty name="vo" property="userPassword" />
+<% request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="user" class="user.UserVO" scope="page"/>
+<jsp:setProperty name="user" property="userID" />
+<jsp:setProperty name="user" property="userPassword" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,14 +25,14 @@
 			script.println("location.href = 'mainPage.jsp'");
 			script.println("</script>");
 		}
-		RegisterDAO dao = new RegisterDAO();
-		int result = dao.login(vo.getUserID(), vo.getUserPassword());
+		UserDAO userDAO = new UserDAO();
+		int result = userDAO.login(user.getUserID(), user.getUserPassword());
 		if(result == 1){
-			session.setAttribute("userID", vo.getUserID());
+			session.setAttribute("userID", user.getUserID());
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('" + vo.getUserName() + "님 안녕하세요')");
-			script.println("location.href = 'mainPage.jsp'");
+			script.println("alert('로그인 되었습니다.')");
+			script.println("location.href = 'sessionMain.jsp'");
 			script.println("</script>");
 		}
 		else if(result == 0){

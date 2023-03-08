@@ -1,6 +1,6 @@
-package com.koreait.Service;
+package user;
 
-public class RegisterVO {
+public class UserVO {
 
 	private String userID;
 	private String userPassword;
