@@ -1,6 +1,6 @@
-//로그인 했을때만 주문하기 페이지로 넘어가도록 하는 함수
-function LoginOK() {
-	var loginVal = confirm('로그인을 하셔야 이용이 가능합니다. 로그인 페이지로 가시겠습니까?');
+//로그인 했을때만 페이지로 넘어가도록 하는 함수
+function loginOK() {
+	var loginVal = confirm('로그인시 이용이 가능합니다. 로그인 페이지로 이동하시겠습니까?');
 	if (loginVal) {
 		location.replace('loginForm.jsp');
 	}
@@ -8,19 +8,13 @@ function LoginOK() {
 		location.replace('mainPage.jsp');
 	}
 }
+//일정 시간마다 색상 랜덤하게 바꾸기
 
-//메인페이지 스크롤시 카테고리 영역은 고정되도록 하는 함수
-function ScrollFix() {
-	  $(document).ready(function(){
-		   $(window).bind('scroll', function() {
-		   var navHeight = $( window ).height() - 70;
-				 if ($(window).scrollTop() > navHeight) {
-					 $('.category').addClass('fixed');
-				 }
-				 else {
-					 $('.category').removeClass('fixed');
-				 }
-			});
-		});
+var colorlist = ["#505050","#828282","#3C3C8C","#3B3051"];
+var cnt = 0;
 
+document.getELementBYId("content").onload=function randomColor(){
+	if(cnt == 3) cnt=0;
+	content.style.color = colorlist[cnt++];
+	setTimeout("randomColor()", 500);
 }

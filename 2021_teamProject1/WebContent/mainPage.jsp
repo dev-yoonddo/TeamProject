@@ -37,12 +37,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>   
     <!-- map -->
 
+	<style>
+		
+	</style>
 	
 </head>
 <body>
 		
 	<!-- header start-->
-	<header id="header" style="transform: translateY(0px);">
+	<header id="header" >
+
 	<nav class="navmenu">
 		<div class="navmenu-left">
 			<input type="image" src="./images/smilepizza.PNG" alt="로고" width="250px" height="70px" style="align-items: center;">
@@ -58,20 +62,22 @@
 	<div class="category">
 		<ul class="category-list">
 			<!-- <li class="active"><a href="mainPage.jsp">메인</a></li> -->
-			<li class="btn2-pt"><div class="btn2" onclick="location.href='#'">메인</div></li>
-			<li class="btn2-pt"><div class="btn2" onclick="location.href='orderPage.jsp'">주문하기</div></li>
-			<li class="btn2-pt"><div class="btn2" onclick="location.href='eventPage.jsp'">이벤트</div></li>
-			<li class="btn2-pt"><div class="btn2" onclick="location.href='customerPage.jsp'">고객센터</div></li>
-			
+			<li class="btn2" onclick="location.href='#'">메인</li>
+			<li class="btn2" onclick="loginOK()">주문하기</li>
+			<li class="btn2" onclick="location.href='eventPage.jsp'">이벤트</li>
+			<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>			
 		</ul>
 		<hr>
 	</div>
+
 	</header>
 
 	<!-- header end-->
 	
 	<!-- section start-->
 	<section>
+	
+		<!-- 플로팅 배너 -->
 		<div class="floatingBanner">
 	    	<a href="/event/viewHtml?seq=1225&amp;gubun=E0200">
 	        	<img src="images/floatBN.png">
@@ -89,16 +95,56 @@
             <div class="carousel-item">
               <img class="d-block img-fluid" src="./images/main1.jpg" alt="Second slide">
             </div>
-          </div><br>
+        </div>
        
-		<!-- 주문하기 버튼 -->
-		<div class="orderBtn">
-			<div class="order" onclick="LoginOK()">주문하기</div>
+		<!-- 메인화면 버튼 섹션 -->
+		<div class="btn-main" >
+			<!-- 주문하기 -->
+			<div class="btn-item" id="order" onclick="loginOK()">
+				<div>
+					<i class="fa-solid fa-store fa-2x" style="font-size: 60pt;"></i>
+					<div style="display: flex;">
+						<div style="text-align: center;">
+							<h1>주문하기</h1>
+							<p>지금 바로 주문하세요!</p>
+						</div>&nbsp;
+						<i class="fa-solid fa-circle-arrow-right" style="font-size: 30pt; margin-top: 18px;"></i>
+					</div>
+				</div>
+			</div><br><br><br>
+			<!-- 회원 가입하기 -->
+			<div class="btn-item" id="join" onclick="location.href='registerPage.jsp'" style="outline-color: blue;">
+				<div>
+					<i class="fa-solid fa-user-plus fa-2x" style="font-size: 60pt;"></i>
+					<div style="display: flex;">
+						<div style="text-align: center;">
+							<h1>신규가입</h1>
+							<p>신규가입시 음료무료!</p>
+						</div>&nbsp;
+						<i class="fa-solid fa-circle-arrow-right" style="font-size: 30pt; margin-top: 18px;"></i>
+					</div>
+				</div>
+			</div>
+			<!-- 문의하기 -->
+			<div class="btn-item" id="inquiry" onclick="loginOK()" style="outline-color: green;">
+				<div>
+					<i class="fa-solid fa-comments fa-2x" style="font-size: 60pt;"></i>
+					<div style="display: flex;">
+						<div style="text-align: center;">
+							<h1>문의하기</h1>
+							<p>무엇이든 문의하세요</p>
+						</div>&nbsp;
+						<i class="fa-solid fa-circle-arrow-right" style="font-size: 30pt; margin-top: 18px;"></i>
+					</div>
+				</div>
+			</div>
 		</div>
 		
 		<!-- 지도삽입 -->
-		<div class="map" align="center">
+		<div class="map-section">
+			<div class="map">
 			<div class="folium-map" id="map_481df0d1cbfe4f409885780076872d2a" ></div>
+			</div>
 		</div>
 	</section>
 	<!-- section end-->
@@ -109,15 +155,40 @@
 	
 	<!-- footer start-->
 	<footer>
+    	<div class="download-app">
+    		<div class="app-box">
+	    		<p>DOWNLOAD APP</p>
+	    		<div style="display: flex; justify-content: center;">
+	    		<div>
+			    	<a href="https://itunes.apple.com/kr/app/"><i id="app" class="fa-brands fa-apple"></i></a>&nbsp;&nbsp;&nbsp;
+			    	<a href="https://play.google.com/store/apps/"><i id="app" class="fa-brands fa-google-play"></i></a>
+		    	</div>
+		    	</div>
+	    	</div>
+	   
+	    	<div class="animated-text">
+			  <div class="track">
+			    <div class="content" id="content">&nbsp;지금 앱을 다운로드 하면 여러가지 할인 혜택을 받으실 수 있습니다.
+			    내가 좋아하는 재료로 나만의 피자를 만들어 보세요 ! If you download the app now, you can enjoy various discounts.
+				Make your own pizza with your favorite ingredients!</div>
+			  </div>
+			</div>
+    	</div>
 		
 		<!-- 가게 정보 -->
-		<div class="location">
-			<div class="container" style="color: white">
-	      		<p class="m-0 text-center">06223 서울특별시 강남구 역삼로1004길 (역삼동, 대박타워) 웃음꽃㈜｜대표이사 : </p>
-	      		<p class="m-0 text-center">사업자 등록번호: 222-22-22222｜통신판매업신고: 강남 1004호｜개인정보 보호책임자 : </p>
-	      		<p class="m-0 text-center">문의 : Webmaster@Happyflower.co.kr</p>
-	      		<p class="m-0 text-center">Copyright ⓒ Happyflower’s Pizza. All rights reserved.</p>
-	      		<p class="m-0 text-center">웃음꽃㈜의 사전 서면동의 없이 웃음꽃피자 사이트(PC, 모바일)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+		<div class="inform">
+			<div class="container" style="padding: 0;">
+				<ul class="footerLogo">
+				<li><input type="image" src="./images/smilepizza.PNG" alt="로고" width="150px" height="45px"></li>
+				<li>1588-2222</li>
+				</ul>
+				<div style="font-size: 10pt; width: 600px;">
+	      		<p class="m-0 text">06223 서울특별시 강남구 역삼로1004길 (역삼동, 대박타워) ㈜티티푸드｜대표이사 : 정윤서 </p>
+	      		<p class="m-0 text">사업자 등록번호: 222-22-22222｜통신판매업신고: 강남 1004호｜개인정보 보호책임자 : 정윤서</p>
+	      		<p class="m-0 text">문의 : Webmaster@Happyflower.co.kr</p>
+	      		<p class="m-0 text">Copyright ⓒ Happyflower’s Pizza. All rights reserved.</p>
+	      		<p class="m-0 text">㈜티티푸드의 사전 서면동의 없이 티티피자 사이트(PC, 모바일)의 일체의 정보, 콘텐츠 및 UI 등을<br>상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+	    		</div>
 	    	</div>
     	</div>
     	
