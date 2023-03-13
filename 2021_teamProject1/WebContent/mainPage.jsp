@@ -145,6 +145,90 @@
 			<div class="map">
 			<div class="folium-map" id="map_481df0d1cbfe4f409885780076872d2a" ></div>
 			</div>
+			<div class="map-inform">
+				<p>위치 찾기</p>
+				<!-- 콤보 상자에서 어떤 option 요소가 선택(변경)되면 실행되는 이벤트는 onchange 이벤트이다.-->
+				<div class="si-do-select">
+				<select id="si-do" style="width: 150px; height: 35px" onchange="sidoCheck()">
+					<option selected>시/도</option>
+					<option value="01">서울</option>
+					<option value="02">인천</option>
+					<option value="03">경기</option>
+				</select>
+				</div>
+				
+				<div class="gu-gun-select">
+					<div class="gu-gun-select">
+						<select id="gu-gun" style="width: 150px; height: 35px">
+						<option value="">구/군</option>
+						<option value="0111">강남구</option>
+						<option value="0110">강동구</option>
+						<option value="0117">강북구</option>
+						<option value="0124">강서구</option>
+						<option value="0120">관악구</option>
+						<option value="0118">광진구</option>
+						<option value="0121">구로구</option>
+						<option value="0122">금천구</option>
+						<option value="0115">노원구</option>
+						<option value="0108">도봉구</option>
+						<option value="0106">동대문구</option>
+						<option value="0123">동작구</option>
+						<option value="0104">마포구</option>
+						<option value="0103">서대문구</option>
+						<option value="0113">서초구</option>
+						<option value="0109">성동구</option>
+						<option value="0112">성북구</option>
+						<option value="0114">송파구</option>
+						<option value="0125">양천구</option>
+						<option value="0119">영등포구</option>
+						<option value="0116">용산구</option>
+						<option value="0105">은평구</option>
+						<option value="0102">종로구</option>
+						<option value="0101">중구</option>
+						<option value="0107">중랑구</option>
+						
+						<option value="0202">계양구</option>
+						<option value="0204">남동구</option>
+						<option value="0203">미추홀구</option>
+						<option value="0206">부평구</option>
+						<option value="0207">서구</option>
+						<option value="0208">연수구</option>
+						<option value="0210">중구</option>
+						
+						<option value="0301">고양시</option>
+						<option value="0302">과천시</option>
+						<option value="0303">광명시</option>
+						<option value="0304">광주시</option>
+						<option value="0305">구리시</option>
+						<option value="0306">군포시</option>
+						<option value="0307">김포시</option>
+						<option value="0308">남양주시</option>
+						<option value="0309">동두천시</option>
+						<option value="0310">부천시</option>
+						<option value="0311">성남시</option>
+						<option value="0312">수원시</option>
+						<option value="0313">시흥시</option>
+						<option value="0314">안산시</option>
+						<option value="0315">안성시</option>
+						<option value="0316">안양시</option>
+						<option value="0327">양주시</option>
+						<option value="0317">양평군</option>
+						<option value="0318">여주군</option>
+						<option value="0318">여주시</option>
+						<option value="0320">오산시</option>
+						<option value="0321">용인시</option>
+						<option value="0322">의왕시</option>
+						<option value="0323">의정부시</option>
+						<option value="0324">이천시</option>
+						<option value="0325">파주시</option>
+						<option value="0328">평택시</option>
+						<option value="0329">포천시</option>
+						<option value="0330">하남시</option>
+						<option value="0331">화성시</option>
+						</select>
+					</div>
+				</div>			
+			</div>
 		</div>
 	</section>
 	<!-- section end-->
@@ -178,16 +262,16 @@
 		<!-- 가게 정보 -->
 		<div class="inform">
 			<div class="container" style="padding: 0;">
-				<ul class="footerLogo">
-				<li><input type="image" src="./images/smilepizza.PNG" alt="로고" width="150px" height="45px"></li>
-				<li>1588-2222</li>
-				</ul>
-				<div style="font-size: 10pt; width: 600px;">
-	      		<p class="m-0 text">06223 서울특별시 강남구 역삼로1004길 (역삼동, 대박타워) ㈜티티푸드｜대표이사 : 정윤서 </p>
-	      		<p class="m-0 text">사업자 등록번호: 222-22-22222｜통신판매업신고: 강남 1004호｜개인정보 보호책임자 : 정윤서</p>
-	      		<p class="m-0 text">문의 : Webmaster@Happyflower.co.kr</p>
-	      		<p class="m-0 text">Copyright ⓒ Happyflower’s Pizza. All rights reserved.</p>
-	      		<p class="m-0 text">㈜티티푸드의 사전 서면동의 없이 티티피자 사이트(PC, 모바일)의 일체의 정보, 콘텐츠 및 UI 등을<br>상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</p>
+				<div>
+					<ul class="footerLogo">
+					<li><input type="image" src="./images/smilepizza.PNG" alt="로고" width="150px" height="45px"></li>
+					<li>1588-2222</li>
+					</ul>
+					<ul style="font-size: 10pt; width: 950px; padding: 0; margin: 0;">
+		      		<li class="m-0 text">06223 서울특별시 강남구 역삼로1004길 (역삼동, 대박타워) ㈜티티푸드 대표이사 : 정윤서 | 사업자 등록번호: 222-22-22222｜통신판매업신고: 강남 1004호</li>
+		      		<li class="m-0 text">｜개인정보 보호책임자 : 정윤서 | 문의 : Webmaster@Happyflower.co.kr | Copyright ⓒ Happyflower’s Pizza. All rights reserved.</li>
+		      		<li class="m-0 text">㈜티티푸드의 사전 서면동의 없이 사이트(PC, 모바일)의 일체의 정보, 콘텐츠 및 UI 등을 상업적 목적으로 전재, 전송, 스크래핑 등 무단 사용할 수 없습니다.</liz>
+		    		</ul>
 	    		</div>
 	    	</div>
     	</div>

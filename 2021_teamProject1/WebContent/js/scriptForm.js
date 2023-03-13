@@ -8,13 +8,3 @@ function loginOK() {
 		location.replace('mainPage.jsp');
 	}
 }
-//일정 시간마다 색상 랜덤하게 바꾸기
-
-var colorlist = ["#505050","#828282","#3C3C8C","#3B3051"];
-var cnt = 0;
-
-document.getELementBYId("content").onload=function randomColor(){
-	if(cnt == 3) cnt=0;
-	content.style.color = colorlist[cnt++];
-	setTimeout("randomColor()", 500);
-}
