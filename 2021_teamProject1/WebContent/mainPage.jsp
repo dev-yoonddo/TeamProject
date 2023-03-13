@@ -143,91 +143,48 @@
 		<!-- 지도삽입 -->
 		<div class="map-section">
 			<div class="map">
-			<div class="folium-map" id="map_481df0d1cbfe4f409885780076872d2a" ></div>
+				<div class="folium-map" id="map_481df0d1cbfe4f409885780076872d2a" ></div>
 			</div>
 			<div class="map-inform">
-				<p>위치 찾기</p>
-				<!-- 콤보 상자에서 어떤 option 요소가 선택(변경)되면 실행되는 이벤트는 onchange 이벤트이다.-->
-				<div class="si-do-select">
-				<select id="si-do" style="width: 150px; height: 35px" onchange="sidoCheck()">
-					<option selected>시/도</option>
-					<option value="01">서울</option>
-					<option value="02">인천</option>
-					<option value="03">경기</option>
-				</select>
-				</div>
-				
-				<div class="gu-gun-select">
-					<div class="gu-gun-select">
-						<select id="gu-gun" style="width: 150px; height: 35px">
-						<option value="">구/군</option>
-						<option value="0111">강남구</option>
-						<option value="0110">강동구</option>
-						<option value="0117">강북구</option>
-						<option value="0124">강서구</option>
-						<option value="0120">관악구</option>
-						<option value="0118">광진구</option>
-						<option value="0121">구로구</option>
-						<option value="0122">금천구</option>
-						<option value="0115">노원구</option>
-						<option value="0108">도봉구</option>
-						<option value="0106">동대문구</option>
-						<option value="0123">동작구</option>
-						<option value="0104">마포구</option>
-						<option value="0103">서대문구</option>
-						<option value="0113">서초구</option>
-						<option value="0109">성동구</option>
-						<option value="0112">성북구</option>
-						<option value="0114">송파구</option>
-						<option value="0125">양천구</option>
-						<option value="0119">영등포구</option>
-						<option value="0116">용산구</option>
-						<option value="0105">은평구</option>
-						<option value="0102">종로구</option>
-						<option value="0101">중구</option>
-						<option value="0107">중랑구</option>
-						
-						<option value="0202">계양구</option>
-						<option value="0204">남동구</option>
-						<option value="0203">미추홀구</option>
-						<option value="0206">부평구</option>
-						<option value="0207">서구</option>
-						<option value="0208">연수구</option>
-						<option value="0210">중구</option>
-						
-						<option value="0301">고양시</option>
-						<option value="0302">과천시</option>
-						<option value="0303">광명시</option>
-						<option value="0304">광주시</option>
-						<option value="0305">구리시</option>
-						<option value="0306">군포시</option>
-						<option value="0307">김포시</option>
-						<option value="0308">남양주시</option>
-						<option value="0309">동두천시</option>
-						<option value="0310">부천시</option>
-						<option value="0311">성남시</option>
-						<option value="0312">수원시</option>
-						<option value="0313">시흥시</option>
-						<option value="0314">안산시</option>
-						<option value="0315">안성시</option>
-						<option value="0316">안양시</option>
-						<option value="0327">양주시</option>
-						<option value="0317">양평군</option>
-						<option value="0318">여주군</option>
-						<option value="0318">여주시</option>
-						<option value="0320">오산시</option>
-						<option value="0321">용인시</option>
-						<option value="0322">의왕시</option>
-						<option value="0323">의정부시</option>
-						<option value="0324">이천시</option>
-						<option value="0325">파주시</option>
-						<option value="0328">평택시</option>
-						<option value="0329">포천시</option>
-						<option value="0330">하남시</option>
-						<option value="0331">화성시</option>
+				<div class="store-search" style="padding-bottom: 30px;">
+					<p>매장 위치 찾기</p><hr style="width: 600px;">
+					<div class="select" style="display: flex;">
+					<!-- 콤보 상자에서 어떤 option 요소가 선택(변경)되면 실행되는 이벤트는 onchange 이벤트이다.-->
+						<div class="si-do-select">
+						<select id="sido" style="width: 200px; height: 40px" onchange="sidoCheck(this)">
+							<option selected>시/도</option>
+							<option value="01">서울</option>
+							<option value="02">인천</option>
+							<option value="03">경기</option>
 						</select>
+						</div>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="si-gu-gun-select">
+							<select id="sigugun" style="width: 200px; height: 40px">
+							<option selected>시/구/군</option>
+							</select>
+						</div>	
 					</div>
-				</div>			
+				</div>
+				<div class="store-lo-box">
+					<ul class="storelist">
+						<li class="store">
+							<dl>
+								<dt>강남점
+									<span class="tel" >02-1234-5678</span>
+								</dt>
+								<dd class="address">
+									<i class="fa-solid fa-map-location-dot" style="color: #ff3131;"></i>
+								 	<span class="adr">서울 강남구 역삼로 123 티티빌딩 1층</span>
+								</dd>
+							</dl>
+							<div class="adr-btn">
+								<a style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a onclick="loginOK()" style="cursor: pointer;">방문포장</a>
+							</div>
+						</li>
+					</ul>
+				</div>		
 			</div>
 		</div>
 	</section>

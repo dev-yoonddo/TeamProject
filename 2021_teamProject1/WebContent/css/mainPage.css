@@ -206,11 +206,44 @@ img {
 	z-index: 1;
 }
 .map-inform{
+	width: auto;
+	height: auto;
+	padding: 30px;
+	margin: 0;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	
+}
+.store-search > p{
+	font-size: 18pt; 
+	font-weight: 600; 
+	color: #424242; 
+	padding: 0;
+	margin: 0;
+}
+.storelist{
+	width: 420px;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	font-size: 12pt;
+}
+.store{
+	width: auto;
+	height: 140px;
+	padding: 20px;
+	background-color: #ffffff;
+}
+.adr-btn > a{
+	background-color: #ffd7d7;
+	padding: 10px 30px;
+	font-weight: 300;
+	font-family: 'Nanum Gothic Coding', monospace;
 	
 }
 footer {
 	width: 1530px;
 	height: auto;
+	padding-top: 30px;
 	background-color: #ffffff;
 	
 }
@@ -218,9 +251,9 @@ footer {
 .download-app{
 	width: 1530px;
 	height: 150px;
-	padding: 0;
+	padding-top: 0;
 	margin: 0;
-	background-color: #F7F7F7;
+	background-color: #ffffff;
 	clear: both;
 	color: #000000;
 	font-size: 13pt;
@@ -243,7 +276,8 @@ footer {
 .animated-text {
 	font-size:35px;
 	font-weight: 400;
-	font-family: 'Gowun Dodum', sans-serif;	color: #424242;
+	font-family: 'Gowun Dodum', sans-serif;
+	color: #424242;
 	position: relative;
 	width: 1300px;
 	padding-top: 50px;
