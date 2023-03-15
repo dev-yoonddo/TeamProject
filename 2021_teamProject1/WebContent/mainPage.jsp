@@ -152,7 +152,7 @@
 					<!-- 콤보 상자에서 어떤 option 요소가 선택(변경)되면 실행되는 이벤트는 onchange 이벤트이다.-->
 						<div class="si-do-select">
 						<select id="sido" style="width: 200px; height: 40px" onchange="sidoCheck(this)">
-							<option selected>시/도</option>
+							<option value="00"selected>시/도</option>
 							<option value="01">서울</option>
 							<option value="02">인천</option>
 							<option value="03">경기</option>
@@ -168,14 +168,36 @@
 				</div>
 				<div class="store-lo-box">
 					<ul class="storelist">
-						<li class="store">
+						<li class="default" onclick="storeDefault()">
 							<dl>
-								<dt>강남점
+								<dt class="text">가까운 주변 매장을 찾아 이벤트에 참여하세요</dt>
+								<dd>최대 20% 할인 이벤트 진행중 !</dd>
+							</dl>
+						</li>
+						
+						<li class="store" id="0101">
+							<dl>
+								<dt>강남점	
 									<span class="tel" >02-1234-5678</span>
 								</dt>
 								<dd class="address">
 									<i class="fa-solid fa-map-location-dot" style="color: #ff3131;"></i>
 								 	<span class="adr">서울 강남구 역삼로 123 티티빌딩 1층</span>
+								</dd>
+							</dl>
+							<div class="adr-btn">
+								<a style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a onclick="loginOK()" style="cursor: pointer;">방문포장</a>
+							</div>
+						</li>
+						<li class="store" id="0102">
+							<dl>
+								<dt>강북점	
+									<span class="tel" >02-1234-5679</span>
+								</dt>
+								<dd class="address">
+									<i class="fa-solid fa-map-location-dot" style="color: #ff3131;"></i>
+								 	<span class="adr">서울 강동구 상일로 123 티티빌딩 1층</span>
 								</dd>
 							</dl>
 							<div class="adr-btn">
@@ -236,7 +258,10 @@
 	</footer>
 	<!-- footer end-->
 	
-	
+	<!-- store -->
+	<script type="text/javascript">
+		$('.store').hide();
+	</script>
 	<script src="option/jquery/jquery.min.js"></script>
   	<script src="option/bootstrap/js/bootstrap.bundle.min.js"></script>
   	

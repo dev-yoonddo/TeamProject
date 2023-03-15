@@ -33,4 +33,23 @@ function sidoCheck(e) {
 		opt.innerHTML = sigugun[x];
 		target.appendChild(opt);
 	}
+	
+
+	//매장 위치 찾기에서 특정 지역을 검색했을 때 가게 정보가 나오도록 하는 스크립트
+	$("#sigugun").change(function(){
+		var result = $("#sigugun option:selected").index();
+		console.log(result); 
+		
+		if(e.value == "01"){
+			if(result == 1){
+				$('.store').hide();
+				$('#0101').show();
+			}else if(result == 2){
+				$('.store').hide();
+				$('#0102').show();
+			}else $('.store').hide();
+		}
+	});
+
+   
 }
