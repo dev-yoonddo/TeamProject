@@ -1,45 +1,65 @@
-html,body{ margin: 0;
-		   padding: 0;
-		   height: 100%;
-		   font-family: 'IBM Plex Sans KR', sans-serif;
-		   list-style: none;
-	       text-decoration: none;
-	       border-collapse: collapse;
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Noto+Serif+KR:wght@200&display=swap');
 
-}
-header{ width: 100%;
-		height: 170px;
-		background-color: #ffffff;
-}
-.left{ width: 100%;
-	   height: 100px;
-	   padding-left: 40px;
-	   padding-top: 40px;
-	  
-}
-section{ width: auto;
-		 height: auto;
-		 background-color: #ffffff;
-		 padding-left: 50px;
-		 
-		 
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	list-style: none;
+	text-decoration: none;
+	border-collapse: collapse;
 }
 
-footer{ width: 100%;
-		background-color: #ffffff;
-		align-content: center;
+header {
+	width: 100%;
+	height: auto;
+	background-color: #ffffff;
+	display: flex;
+	align-content: center;
+}
+.navmenu-right {
+	width: 250px;
+	margin: 0;
+	padding-right: 50;
+	display: flex;
+	justify-content: center;
+}
+section {
+	width: 1530px;
+	height: auto;
+	background-color: #ffffff;
+	padding: 0 50px;
+}
+
+.option{
+	width: 47%;
+	height: auto;
+}
+.pizzaimage{
+	width: 53%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	
+}
+.btns{
+	display: flex;
+	font-size: 10pt;
+}
+.cheese{
+	outline-style: hidden;
+}
+footer {
+	width: 100%;
+	background-color: #ffffff;
+	align-content: center;
+	padding-bottom: 50px;
 }
 
 span#totalPrice {
-	font-size: 40px;
+	font-size: 20pt;
 	font-weight: bold;
 }
-
-
-#totalBtn{
-	align-self: center;
-}
-
 span#total {
-	font-size: 30px;
+	font-size: 15pt;
 }

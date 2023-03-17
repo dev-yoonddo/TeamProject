@@ -1,6 +1,5 @@
 onload=function(){
 	totalPrice();
-	
 }
 function totalPrice(){
 	document.getElementById('totalPrice').innerHTML=price;
@@ -12,6 +11,7 @@ let size=11000;
 let cheese=2000;
 let drink=0;
 let toppings = 0;
+
 function toppingPlus(){
 	topping+=document.getElementsByName("product")[0].value+"/";
 	document.getElementsByName("topping")[0].innerHTML=topping;
@@ -67,3 +67,4 @@ function orderAlert(){
 		location.href('orderPage.jsp');
 	}
 }
+

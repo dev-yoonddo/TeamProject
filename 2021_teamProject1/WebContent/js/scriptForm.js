@@ -39,6 +39,7 @@ function sidoCheck(e) {
 	$("#sigugun").change(function(){
 		var result = $("#sigugun option:selected").index();
 		console.log(result); 
+		$('.default').hide();
 		
 		if(e.value == "01"){
 			if(result == 1){
@@ -47,9 +48,35 @@ function sidoCheck(e) {
 			}else if(result == 2){
 				$('.store').hide();
 				$('#0102').show();
-			}else $('.store').hide();
+			}
+		}else if(e.value == "02"){
+			if(result == 1){
+				$('.store').hide();
+				$('#0103').show();
+			}
+		}else if(e.value == "03"){
+			if(result == 1){
+				$('.store').hide();
+				$('#0104').show();
+			}
 		}
-	});
-
-   
+	});   
 }
+
+//배경 깜빡이기 효과
+var speed=500 
+
+function flashit(){ 
+	var flicker=document.getElementById? document.getElementById("evn") : document.all? document.all.myexample : "" 
+	if (flicker){ 
+		if (flicker.style.backgroundColor.indexOf("rgb(255, 165, 40)")!=-1) 
+			flicker.style.backgroundColor="#FAFA96" 
+		else 
+			flicker.style.backgroundColor="rgb(255, 165, 40)" 
+
+
+	}
+} 
+setInterval("flashit()", speed) 
+
+	

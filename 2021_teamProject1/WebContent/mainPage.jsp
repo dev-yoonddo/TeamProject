@@ -166,13 +166,16 @@
 						</div>	
 					</div>
 				</div>
+				
 				<div class="store-lo-box">
 					<ul class="storelist">
-						<li class="default" onclick="storeDefault()">
+						<li class="default">
 							<dl>
-								<dt class="text">가까운 주변 매장을 찾아 이벤트에 참여하세요</dt>
-								<dd>최대 20% 할인 이벤트 진행중 !</dd>
+								<dt><span id ="evn" style="font-size: 18pt; border-radius: 5px; padding: 2px 5px;" onclick="flashit()">가까운 주변 매장을 찾아보세요</span></dt>
 							</dl>
+							<dl>
+								<dd style="font-size: 15pt;">최대 20% 할인 이벤트 진행중 !</dd>
+							</dl>         
 						</li>
 						
 						<li class="store" id="0101">
@@ -182,7 +185,7 @@
 								</dt>
 								<dd class="address">
 									<i class="fa-solid fa-map-location-dot" style="color: #ff3131;"></i>
-								 	<span class="adr">서울 강남구 역삼로 123 티티빌딩 1층</span>
+								 	<span class="adr">서울 특별시 강남구 역삼로 123 티티빌딩 1층</span>
 								</dd>
 							</dl>
 							<div class="adr-btn">
@@ -197,7 +200,37 @@
 								</dt>
 								<dd class="address">
 									<i class="fa-solid fa-map-location-dot" style="color: #ff3131;"></i>
-								 	<span class="adr">서울 강동구 상일로 123 티티빌딩 1층</span>
+								 	<span class="adr">서울특별시 강동구 상일로 123 티티빌딩 1층</span>
+								</dd>
+							</dl>
+							<div class="adr-btn">
+								<a style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a onclick="loginOK()" style="cursor: pointer;">방문포장</a>
+							</div>
+						</li>
+						<li class="store" id="0103">
+							<dl>
+								<dt>계양점	
+									<span class="tel" >02-1234-5680</span>
+								</dt>
+								<dd class="address">
+									<i class="fa-solid fa-map-location-dot" style="color: #ff3131;"></i>
+								 	<span class="adr">인천광역시 계양구 주부토로 123 티티빌딩 1층</span>
+								</dd>
+							</dl>
+							<div class="adr-btn">
+								<a style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a onclick="loginOK()" style="cursor: pointer;">방문포장</a>
+							</div>
+						</li>
+						<li class="store" id="0104">
+							<dl>
+								<dt>고양점	
+									<span class="tel" >02-1234-5681</span>
+								</dt>
+								<dd class="address">
+									<i class="fa-solid fa-map-location-dot" style="color: #ff3131;"></i>
+								 	<span class="adr">경기도 고양시 덕양구 혜음로 123 티티빌딩 1층</span>
 								</dd>
 							</dl>
 							<div class="adr-btn">
