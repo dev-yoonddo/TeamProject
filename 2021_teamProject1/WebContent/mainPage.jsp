@@ -13,8 +13,11 @@
 	<link rel="stylesheet" href="css/mainPage.css?after">
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<script src="js/scriptForm.js"type="text/javascript"></script>
-
+	<script defer src="js/scriptForm.js"type="text/javascript"></script>
+	<script defer src="option/jquery/jquery.min.js"></script>
+  	<script defer src="option/bootstrap/js/bootstrap.bundle.min.js"></script>
+  	<script defer src="https://kit.fontawesome.com/f95555e5d8.js" crossorigin="anonymous"></script>
+  	
 	<!-- map -->
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     
@@ -64,7 +67,7 @@
 			<!-- <li class="active"><a href="mainPage.jsp">메인</a></li> -->
 			<li class="btn2" onclick="location.href='#'">메인</li>
 			<li class="btn2" onclick="loginOK()">주문하기</li>
-			<li class="btn2" onclick="location.href='eventPage.jsp'">이벤트</li>
+			<li class="btn2" onclick="searchStore()">매장찾기</li>
 			<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>			
 		</ul>
 		<hr>
@@ -291,22 +294,27 @@
 	</footer>
 	<!-- footer end-->
 	
-	<!-- store -->
-	<script type="text/javascript">
+
+  	
+	<script>
+		//category: searchStore
+		function searchStore() {
+		  window.scrollTo({top:500, left:0, behavior:'smooth'});
+		}
+		
+		//store
 		$('.store').hide();
 	</script>
-	<script src="option/jquery/jquery.min.js"></script>
-  	<script src="option/bootstrap/js/bootstrap.bundle.min.js"></script>
-  	
+	
   	<!-- floating banner script -->
   	<script>
 	    $('.floatingBanner .btn-close').on('click', function(){
 	        $(this).parents('.floatingBanner').hide();
 	    });
 	</script>
+	
   	<!-- map script -->
   	<script>    
-    
             var map_481df0d1cbfe4f409885780076872d2a = L.map(
                 "map_481df0d1cbfe4f409885780076872d2a",
                 {
@@ -317,8 +325,6 @@
                     preferCanvas: false,
                 }
             );
-
-        
             var tile_layer_78f4264a19e64aab83b57e84f5a5f7c3 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
@@ -342,14 +348,10 @@
         
             var html_8a7a7cbe05f24d40a333a24b2410a5fc = $(`<div id="html_8a7a7cbe05f24d40a333a24b2410a5fc" style="width: 100.0%; height: 100.0%;">웃음꽃피자</div>`)[0];
             popup_8432c7b80a1c40828405b6ee597c6d63.setContent(html_8a7a7cbe05f24d40a333a24b2410a5fc);
-        
 
         marker_29516eae4bc74c5495711d6b6f66ad6d.bindPopup(popup_8432c7b80a1c40828405b6ee597c6d63)
         ;
 
-        
-    
-    
             var circle_marker_82f83dc5b5ee47ef8274af526034881d = L.circleMarker(
                 [37.49999404577967, 127.03552168205158],
                 {"bubblingMouseEvents": true, "color": "#B93CE8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0DFB78", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 100, "stroke": true, "weight": 3}
@@ -367,7 +369,6 @@
         ; 
 </script>
 
-<script src="https://kit.fontawesome.com/f95555e5d8.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Noto+Serif+KR:wght@200&display=swap');
-
-body {
+@import url('https://webfontworld.github.io/TheJamsil/TheJamsil.css');
+html,body {
 	font-family: 'Nanum Gothic Coding', monospace;
 }
 

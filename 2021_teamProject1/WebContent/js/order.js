@@ -1,9 +1,13 @@
 onload=function(){
 	totalPrice();
 }
+
+//선택된 값들의 총 합계
 function totalPrice(){
 	document.getElementById('totalPrice').innerHTML=price;
 }
+
+// 각 옵션의 기본값을 정하고 모두 더한 값을 price의 기본값으로 입력한다.
 let topping="";
 let price=13000;
 let dough=0;
@@ -12,23 +16,26 @@ let cheese=2000;
 let drink=0;
 let toppings = 0;
 
-function toppingPlus(){
-	topping+=document.getElementsByName("product")[0].value+"/";
-	document.getElementsByName("topping")[0].innerHTML=topping;
-	console.log(document.getElementsByName("product")[0].value);
-	price += parseInt((document.getElementById(document.getElementsByName("product")[0].value).value));
+//추가 버튼을 눌렀을 때 선택한 토핑을 출력하고 price에 value값(가격)을 더한다.
+function plusTopping(){
+	topping+=document.getElementsByName("topping")[0].value+", ";
+	document.getElementsByName("select-topping")[0].innerHTML=topping;
+	console.log(document.getElementsByName("topping")[0].value);
+	price += parseInt((document.getElementById(document.getElementsByName("topping")[0].value).value));
 	console.log(price);
-	toppings += parseInt((document.getElementById(document.getElementsByName("product")[0].value).value));
+	toppings += parseInt((document.getElementById(document.getElementsByName("topping")[0].value).value));
 	totalPrice();
 }
+//초기화 버튼을 눌렀을 때 선택한 토핑을 모두 지우고 price에서도 뺀다.
 function resetTopping(){
 	topping="";
-	document.getElementsByName("topping")[0].innerHTML=topping;
+	document.getElementsByName("select-topping")[0].innerHTML=topping;
 	price -= toppings;
 	toppings = 0;
+	console.log(price);
 	totalPrice();
 }
-// document.getElementsByName('exampleRadios').onclick=sizePrice();
+// 선택된 size 옵션의 value값에서 size의 기본값을 뺀 값을 price에 더한다. 
 function sizePrice(){
 	price += document.querySelector('input[name="exampleRadios"]:checked').value - size;
 	//console.log(document.querySelector('input[name="exampleRadios"]:checked').value);
@@ -37,21 +44,22 @@ function sizePrice(){
 	console.log(price);
 	totalPrice();
 }
-
+//선택된 dough 옵션의 value값에서 dough의 기본값을 뺀 값을 price에 더한다.
 function doughPrice(){
 	price += document.querySelector('input[name="exampleRadios2"]:checked').value - dough;
 	dough=document.querySelector('input[name="exampleRadios2"]:checked').value;
 	console.log(price);
 	totalPrice();
 }
+//선택된 cheese 옵션의 value값에서 cheese의 기본값을 뺀 값을 price에 더한다.
 function cheesePrice(){
 	price += document.querySelector('input[name="exampleRadios3"]:checked').value - cheese;
 	cheese=document.querySelector('input[name="exampleRadios3"]:checked').value;
 	console.log(price);
 	totalPrice();
 }
+//선택된 drink 옵션의 value값에서 drink의 기본값을 뺀 값을 price에 더한다.
 function beveragePrice(){
-	// console.log(document.getElementsByName("beverage")[0].value)
 	price += parseInt(document.getElementsByName("beverage")[0].value) - drink;
 	drink = parseInt(document.getElementsByName("beverage")[0].value)
 	console.log(price);
@@ -68,3 +76,14 @@ function orderAlert(){
 	}
 }
 
+var currentPosition = parseInt($(".pizzaimage").css("top"));
+let scrollY = this.scrollY;
+let scrollX = this.scrollX;
+console.log(scrollY);
+	
+		$(window).scroll(function() { 
+			if(scrollY > 400){
+			var position = $(window).scrollTop();
+			$(".pizzaimage").stop().animate({"top":position+"px"},1000); 
+			}
+		});

@@ -42,6 +42,15 @@
 	color: black;
 	background-color: white;
 }
+.order-message{
+width: auto;
+padding: 0;
+margin: 0;'
+align-items: center;
+}
+.message{
+align-items: center;
+}
 </style>
 </head>
 <body onload="showClock()">
@@ -84,7 +93,7 @@
 	<section>
 		<div class="order-message">
 				<!-- message -->
-				<div class="message">
+				<div class="message" align="center">
 					<h2>주문 요청이 완료되었습니다</h2>
 					<br>
 					<div id="divClock" class="clock"></div>
