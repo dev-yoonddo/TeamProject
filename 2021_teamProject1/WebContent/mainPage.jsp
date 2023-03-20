@@ -8,7 +8,7 @@
 <meta name="viewport" content="width-device-width", initial-scale="1">
 <meta charset="UTF-8">
 
-<title>피자가게</title>
+<title>TT PIZZA</title>
 	<link rel="icon" href="./images/logo-favicon.png">
 	<link rel="stylesheet" href="css/mainPage.css?after">
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -49,12 +49,13 @@
 		
 	<!-- header start-->
 	<header id="header" >
-
+	<!-- header 위 -->
 	<nav class="navmenu">
+		<!-- 왼쪽 로고 -->
 		<div class="navmenu-left">
 			<input type="image" src="./images/smilepizza.PNG" alt="로고" width="250px" height="70px" style="align-items: center;">
 		</div>
-		
+		<!-- 오른쪽 로그인/회원가입 버튼 -->
 		<div class="navmenu-right">	
 			<ul class="login">
 				<li class="btn1-login"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='loginForm.jsp'">로그인</button>&nbsp;</li>
@@ -62,9 +63,10 @@
 			</ul>
 		</div>
 	</nav>
+	<!-- header 아래 -->
 	<div class="category">
+		<!-- 카테고리 -->
 		<ul class="category-list">
-			<!-- <li class="active"><a href="mainPage.jsp">메인</a></li> -->
 			<li class="btn2" onclick="location.href='#'">메인</li>
 			<li class="btn2" onclick="loginOK()">주문하기</li>
 			<li class="btn2" onclick="searchStore()">매장찾기</li>
@@ -72,9 +74,7 @@
 		</ul>
 		<hr>
 	</div>
-
 	</header>
-
 	<!-- header end-->
 	
 	<!-- section start-->
@@ -88,8 +88,7 @@
 	        <button class="btn-close"></button>
 	    </div>
 	    
-		<!-- 메인화면 슬라이드 -->
-        
+		<!-- 메인 슬라이드 -->
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" align="center" style="width: 1530px; height: 500px;">
             <div class="carousel-item active">
               <img class="d-block img-fluid" src="./images/main2.png" alt="First slide">
@@ -100,7 +99,7 @@
             </div>
         </div>
        
-		<!-- 메인화면 버튼 섹션 -->
+		<!-- 메인 버튼 섹션-->
 		<div class="btn-main" >
 			<!-- 주문하기 -->
 			<div class="btn-item" id="order" onclick="loginOK()">
@@ -143,11 +142,13 @@
 			</div>
 		</div>
 		
-		<!-- 지도삽입 -->
+		<!-- 메인 지도 섹션 -->
 		<div class="map-section">
+			<!-- 왼쪽 지도 삽입 -->
 			<div class="map">
 				<div class="folium-map" id="map_481df0d1cbfe4f409885780076872d2a" ></div>
 			</div>
+			<!-- 오른쪽 매장 찾기  -->
 			<div class="map-inform">
 				<div class="store-search" style="padding-bottom: 30px;">
 					<p>매장 위치 찾기</p><hr style="width: 600px;">
@@ -192,8 +193,15 @@
 								</dd>
 							</dl>
 							<div class="adr-btn">
-								<a style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="#gangnam-info" class="open_info" style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
 								<a onclick="loginOK()" style="cursor: pointer;">방문포장</a>
+							
+								<div id="gangnam-info" class="pop_wrap" style="display:none;">
+									<div class="pop_inner">
+									    <p class="dsc">월-일(공휴일 휴무) 오전09:00-오후11:00까지 정상 영업합니다.<br>지금 주문시 사이즈업 무료 이벤트 중!</p>
+									    <button type="button" class="btncls"><span>닫기</span></button>
+									</div>
+								</div>
 							</div>
 						</li>
 						<li class="store" id="0102">

@@ -23,7 +23,6 @@ hr {
 	display: flex;
 	align-items: center;
 	position: relative;
-	z-index: 3;
 }
 
 li {
@@ -35,6 +34,7 @@ li {
 .navmenu-left {
 	width: 80%;
 	padding-left: 50px;
+	z-index: 1;
 }
 
 .navmenu-right {
@@ -71,7 +71,6 @@ li {
 	font-family: 'IBM Plex Sans KR', sans-serif;
 	background-color: #ffffff;
 	z-index: 2;
-	
 }
 
 
@@ -134,7 +133,7 @@ img {
 	top: 200px;
 	left: 80%;
 	right: 0;
-	z-index: 2;
+	z-index: 3;
 	position: fixed;
 	animation: motion 0.3s linear 0s infinite alternate;
 	
@@ -200,7 +199,6 @@ img {
 	height: 500px;
 	background-color: #F7F7F7;
 	z-index: 1;
-	
 }
 .folium-map{
 	z-index: 1;
@@ -211,7 +209,7 @@ img {
 	padding: 30px;
 	margin: 0;
 	font-family: 'IBM Plex Sans KR', sans-serif;
-	
+	z-index: 3;
 }
 .store-search > p{
 	font-size: 18pt; 
@@ -226,6 +224,7 @@ img {
 	padding: 0;
 	margin: 0;
 	font-size: 12pt;
+	
 }
 .store{
 	width: auto;
@@ -233,13 +232,82 @@ img {
 	padding: 20px;
 	background-color: #ffffff;
 }
+
 .adr-btn > a{
 	background-color: #ffd7d7;
 	padding: 10px 30px;
+	color: black;
 	font-weight: 300;
 	font-family: 'Nanum Gothic Coding', monospace;
+	text-decoration:none;
+}
+.adr-btn > a:hover{
+	text-decoration: none;
+	color: black;
+}
+.pop_wrap{
+	position:fixed; 
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:rgba(0,0,0,.3); 
+	text-align:center;
+	justify-content: center;
 	
 }
+.pop_wrap:after{
+	display:inline-block; 
+	height:100%; 
+	vertical-align:middle; 
+	content:'';
+}
+.pop_inner{
+	display:inline-block; 
+	padding:20px; 
+	background:#fff; 
+	font-size:15px;
+	font-weight: bold;
+	border-radius: 10px;
+	
+}
+
+.btncls {
+  position: relative;
+  display: inline-block;
+  width: 100px; height: 50px;
+  background-color: transparent;
+  border: none; 
+  cursor: pointer;
+  margin: 0;
+ 
+}
+.btncls span {         
+  position: relative;
+  display: inline-block;
+  font-size: 12pt;
+  font-weight: bold;
+  font-family: 'Nanum Gothic Coding', monospace;
+  letter-spacing: 2px;
+  width: 100%;
+  padding: 10px;
+  transition: 0.5s;
+  
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid #000000;
+}
+
+/*--- btn-1 ---*/
+.btncls::before {
+  background-color: #000000;
+}
+
+.btncls span:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
+
 footer {
 	width: 1530px;
 	height: auto;
