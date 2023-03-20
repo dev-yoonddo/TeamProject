@@ -66,6 +66,7 @@ function beveragePrice(){
 	totalPrice();
 }
 
+//주문하기 버튼을 누르면 뜨는 알림창
 function orderAlert(){
 	var returnValue = confirm('주문하신 정보가 맞는지 다시 확인해 주세요. 정말 이대로 주문하시겠습니까?');
 	if (returnValue) {
@@ -76,14 +77,12 @@ function orderAlert(){
 	}
 }
 
-var currentPosition = parseInt($(".pizzaimage").css("top"));
-let scrollY = this.scrollY;
-let scrollX = this.scrollX;
-console.log(scrollY);
+//스크롤 움직임에 따라 이미지도 같이 움직이기
+console.log(window.scrollY);
+$(window).scroll(function() { 
+	var position = $(window).scrollTop();
+	if($(this).scrollTop() > 550) {	
+	$(".pizzaimage").stop().animate({"top":(position-560)+"px"},1000); 
+	}
 	
-		$(window).scroll(function() { 
-			if(scrollY > 400){
-			var position = $(window).scrollTop();
-			$(".pizzaimage").stop().animate({"top":position+"px"},1000); 
-			}
-		});
+});

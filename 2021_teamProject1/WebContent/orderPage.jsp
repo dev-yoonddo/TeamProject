@@ -21,7 +21,6 @@
 <script defer src="option/jquery/jquery.min.js"></script>
 <script defer src="js/scriptForm.js" type="text/javascript"></script>
 <script defer src="js/order.js" type="text/javascript"></script>
-<link href="https://webfontworld.github.io/TheJamsil/TheJamsil.css" rel="stylesheet">
 
 </head>
 <body>

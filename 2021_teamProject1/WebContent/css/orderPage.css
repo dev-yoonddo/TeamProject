@@ -36,7 +36,7 @@ section {
 	height: auto;
 }
 .image{
-	width: auto;
+	width: 750px;
 	height: auto;
 	padding: 0;
 	margin: 0;
@@ -44,11 +44,10 @@ section {
 }
 .pizzaimage{
 	width: 750px;
-	height: 750px;
+	height: 650px;
 	position: absolute;
-	
-	
 }
+
 .btns{
 	display: flex;
 	font-size: 10pt;
