@@ -21,46 +21,59 @@
 <script defer src="option/jquery/jquery.min.js"></script>
 <script defer src="js/scriptForm.js" type="text/javascript"></script>
 <script defer src="js/order.js" type="text/javascript"></script>
-
+<style>
+#btn-tp span{
+	font-size: 10pt;
+	width: 80px;
+	height: 30px;
+	padding: 5px;
+	margin: 0;
+}
+#btn-rq span{
+	font-size: 13pt;
+	width: 100px;
+	height: 40px;
+	padding: 5px;
+	margin: 0;
+	align-items: center;
+}
+</style>
 </head>
 <body>
 
-	<!-- header start-->
-	<header id="header">
-		<%
-			// 세션값 가져오기
-			String id = (String) session.getAttribute("userID"); // Object 타입이므로 다운캐스팅
-		%>
-		<nav class="navmenu">
-			<div class="navmenu-left">
-				<input type="image" src="./images/smilepizza.PNG" alt="로고"
-					onclick="location.href='sessionMain.jsp'" width="250px"
-					height="70px" style="align-items: center;">
-			</div>
+<!-- header start-->
+<header id="header" >
 
-			<div class="navmenu-right">
-				<ul class="login">
-					<li style="font-size: 10pt;"><%=id%>님이<br>로그인하였습니다.&nbsp;&nbsp;</li>
-					<li class="btn1-logout"><button type="button"
-							class="btn btn-outline-gray" id="btn1"
-							onclick="location.href='sessionLogout.jsp'">로그아웃</button>&nbsp;</li>
-				</ul>
-			</div>
-		</nav>
-		<div class="category">
-			<ul class="category-list">
-				<!-- <li class="active"><a href="mainPage.jsp">메인</a></li> -->
-				<li class="btn2" onclick="location.href='sessionMain.jsp'">메인</li>
-				<li class="btn2" onclick="location.href='orderPage.jsp'">주문하기</li>
-				<li class="btn2" onclick="location.href='sessionMain.jsp'">매장찾기</li>
-				<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>
-			</ul>
-			<hr>
+	<% 
+	// 세션값 가져오기
+	String id = (String) session.getAttribute("userID"); // Object 타입이므로 다운캐스팅
+	%>
+	<nav class="navmenu">
+		<div class="navmenu-left">
+			<input type="image" src="./images/smilepizza.PNG" alt="로고" onclick="location.href='sessionMain.jsp'" width="250px" height="70px" style="align-items: center;">
 		</div>
+		
+		<div class="navmenu-right">	
+			<ul class="login">
+				<li style="font-size: 10pt; color: red;"><%=id %> 님이<br>로그인하였습니다.&nbsp;&nbsp;</li>
+				<li class="btn1-logout"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</button>&nbsp;</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="category">
+		<ul class="category-list">
+			<!-- <li class="active"><a href="mainPage.jsp">메인</a></li> -->
+			<li class="btn2" onclick="location.href='sessionMain.jsp'">메인</li>
+			<li class="btn2" onclick="location.href='orderPage.jsp'">주문하기</li>
+			<li class="btn2" onclick="location.href='sessionMain.jsp'">매장찾기</li>
+			<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>			
+		</ul>
+		<hr>
+	</div>
+</header>
+<br>
+	<!-- header end-->
 
-	</header>
-	<!-- header end -->
-	<br>
 
 	<!-- section start -->
 	<section>
@@ -181,20 +194,18 @@
 
 							<div class="btns">
 								<div class="add">
-									<input type="submit" value="추가" onclick="plusTopping()">
+									<button type="button" class="btn-black" id="btn-tp" onclick="plusTopping()"><span>추가</span></button>
 									<!--정보를 넘겨준다.-->
 								</div>
-								&nbsp;&nbsp;&nbsp;
+								
 								<div class="reset">
-									<input type="submit" value="초기화" onclick="resetTopping()">
+									<button type="button" class="btn-black" id="btn-tp" onclick="resetTopping()"><span>초기화</span></button>
 									<!--정보를 넘겨준다.-->
 								</div>
 							</div>
 							<br>
-							<br>
 						</form>
 					</div>
-
 					<form>
 						<div>
 							<h3>선택된 토핑 목록</h3>
@@ -276,9 +287,7 @@
 			<div>
 				<span id="total">총금액: ￦</span> <span id="totalPrice"></span>
 			</div>
-			<br>
-			<button id="btn" type="button" class="btn btn-danger" mx="auto"
-				style="color: yellow;" onclick="orderAlert()">주문요청</button>
+			<button type="button" class="btn-black" id="btn-rq"onclick="orderAlert()"><span>주문요청</span></button>
 		</div>
 	</footer>
 	<!-- footer end -->

@@ -78,7 +78,7 @@ function orderAlert(){
 }
 
 //스크롤 움직임에 따라 이미지도 같이 움직이기
-console.log(window.scrollY);
+//console.log(window.scrollY);
 $(window).scroll(function() { 
 	var position = $(window).scrollTop();
 	if($(this).scrollTop() > 550) {	

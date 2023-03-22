@@ -2,7 +2,7 @@
 function loginOK() {
 	var loginVal = confirm('로그인시 이용이 가능합니다. 로그인 페이지로 이동하시겠습니까?');
 	if (loginVal) {
-		location.replace('loginForm.jsp');
+		location.replace('loginPage.jsp');
 	}
 	else {
 		location.replace('mainPage.jsp');
@@ -40,24 +40,37 @@ function sidoCheck(e) {
 		var result = $("#sigugun option:selected").index();
 		console.log(result); 
 		$('.default').hide();
-		
+
 		if(e.value == "01"){
 			if(result == 1){
 				$('.store').hide();
+				$('.nostore').hide();
 				$('#0101').show();
 			}else if(result == 2){
 				$('.store').hide();
+				$('.nostore').hide();
 				$('#0102').show();
+			}else{
+				$('.store').hide();
+				$('.nostore').show();
 			}
 		}else if(e.value == "02"){
 			if(result == 1){
 				$('.store').hide();
+				$('.nostore').hide();
 				$('#0103').show();
+			}else{
+				$('.store').hide();
+				$('.nostore').show();
 			}
 		}else if(e.value == "03"){
 			if(result == 1){
 				$('.store').hide();
+				$('.nostore').hide();
 				$('#0104').show();
+			}else{
+				$('.store').hide();
+				$('.nostore').show();
 			}
 		}
 	});   
@@ -81,7 +94,7 @@ setInterval("flashit()", speed)
 
 //지점에서 상세보기 버튼을 클릭했을 때 정보를 보여주는 팝업창 띄우기
 var target = document.querySelectorAll('.open_info');
-var btnPopClose = document.querySelectorAll('.pop_wrap .btncls');
+var btnPopClose = document.querySelectorAll('.pop_wrap .btn-black');
 var targetID;
 
 	// 팝업 열기

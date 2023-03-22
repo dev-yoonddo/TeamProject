@@ -10,20 +10,6 @@ body {
 	border-collapse: collapse;
 }
 
-header {
-	width: 100%;
-	height: auto;
-	background-color: #ffffff;
-	display: flex;
-	align-content: center;
-}
-.navmenu-right {
-	width: 250px;
-	margin: 0;
-	padding-right: 50;
-	display: flex;
-	justify-content: center;
-}
 section {
 	width: 1530px;
 	height: auto;
@@ -47,10 +33,10 @@ section {
 	height: 650px;
 	position: absolute;
 }
-
 .btns{
 	display: flex;
 	font-size: 10pt;
+	
 }
 .cheese{
 	outline-style: hidden;

@@ -58,8 +58,8 @@
 		<!-- 오른쪽 로그인/회원가입 버튼 -->
 		<div class="navmenu-right">	
 			<ul class="login">
-				<li class="btn1-login"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='loginForm.jsp'">로그인</button>&nbsp;</li>
-				<li class="btn1-join"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='registerPage.jsp'">회원가입</button></li>
+				<li class="btn1-login"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='loginPage.jsp'">로그인</button>&nbsp;</li>
+				<li class="btn1-join"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='joinPage.jsp'">회원가입</button></li>
 			</ul>
 		</div>
 	</nav>
@@ -72,7 +72,7 @@
 			<li class="btn2" onclick="searchStore()">매장찾기</li>
 			<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>			
 		</ul>
-		<hr>
+		<br>
 	</div>
 	</header>
 	<!-- header end-->
@@ -115,7 +115,7 @@
 				</div>
 			</div><br><br><br>
 			<!-- 회원 가입하기 -->
-			<div class="btn-item" id="join" onclick="location.href='registerPage.jsp'" style="outline-color: blue;">
+			<div class="btn-item" id="join" onclick="location.href='joinPage.jsp'" style="outline-color: blue;">
 				<div>
 					<i class="fa-solid fa-user-plus fa-2x" style="font-size: 60pt;"></i>
 					<div style="display: flex;">
@@ -181,7 +181,11 @@
 								<dd style="font-size: 15pt;">최대 20% 할인 이벤트 진행중 !</dd>
 							</dl>         
 						</li>
-						
+						<li class="nostore">
+							<dl>
+								<dd style="font-size: 12pt;">선택하신 지역에 매장이 없습니다. 다른 지역을 선택해 주세요 !</dd>
+							</dl>         
+						</li>
 						<li class="store" id="0101">
 							<dl>
 								<dt>강남점	
@@ -199,7 +203,7 @@
 								<div id="gangnam-info" class="pop_wrap" style="display:none;">
 									<div class="pop_inner">
 									    <p class="dsc">월-일(공휴일 휴무) 오전09:00-오후11:00까지 정상 영업합니다.<br>지금 주문시 사이즈업 무료 이벤트 중!</p>
-									    <button type="button" class="btncls"><span>닫기</span></button>
+									    <button type="button" class="btn-black"><span>닫기</span></button>
 									</div>
 								</div>
 							</div>
@@ -215,8 +219,15 @@
 								</dd>
 							</dl>
 							<div class="adr-btn">
-								<a style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="#gangbuk-info" class="open_info" style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
 								<a onclick="loginOK()" style="cursor: pointer;">방문포장</a>
+							
+								<div id="gangbuk-info" class="pop_wrap" style="display:none;">
+									<div class="pop_inner">
+									    <p class="dsc">월-토(공휴일 휴무) 오전09:00-오후09:00까지 영업합니다.<br>매장 방문 30분전 미리 주문하세요.</p>
+									    <button type="button" class="btn-black"><span>닫기</span></button>
+									</div>
+								</div>
 							</div>
 						</li>
 						<li class="store" id="0103">
@@ -230,8 +241,15 @@
 								</dd>
 							</dl>
 							<div class="adr-btn">
-								<a style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="#gaeyang-info" class="open_info" style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
 								<a onclick="loginOK()" style="cursor: pointer;">방문포장</a>
+							
+								<div id="gaeyang-info" class="pop_wrap" style="display:none;">
+									<div class="pop_inner">
+									    <p class="dsc">주문 전 미리 전화주세요<br>전 메뉴 30% 할인중!!</p>
+									    <button type="button" class="btn-black"><span>닫기</span></button>
+									</div>
+								</div>
 							</div>
 						</li>
 						<li class="store" id="0104">
@@ -245,8 +263,15 @@
 								</dd>
 							</dl>
 							<div class="adr-btn">
-								<a style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href="#goyang-info" class="open_info" style="cursor: pointer;">상세보기</a>&nbsp;&nbsp;&nbsp;&nbsp;
 								<a onclick="loginOK()" style="cursor: pointer;">방문포장</a>
+							
+								<div id="goyang-info" class="pop_wrap" style="display:none;">
+									<div class="pop_inner">
+									    <p class="dsc">방문 포장시 사이드메뉴 1개 무료!<br>새우튀김/치즈볼/감자튀김 중 택1</p>
+									    <button type="button" class="btn-black"><span>닫기</span></button>
+									</div>
+								</div>
 							</div>
 						</li>
 					</ul>
@@ -305,13 +330,14 @@
 
   	
 	<script>
-		//category: searchStore
+		//카테고리-매장찾기 클릭했을 때 map-section으로 스크롤하기
 		function searchStore() {
-		  window.scrollTo({top:500, left:0, behavior:'smooth'});
+		  window.scrollTo({top:1000, left:0, behavior:'smooth'});
 		}
 		
 		//store
 		$('.store').hide();
+		$('.nostore').hide();
 	</script>
 	
   	<!-- floating banner script -->

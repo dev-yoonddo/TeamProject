@@ -264,15 +264,17 @@ img {
 }
 .pop_inner{
 	display:inline-block; 
-	padding:20px; 
+	padding:20px;
+	margin: 0;
 	background:#fff; 
 	font-size:15px;
 	font-weight: bold;
 	border-radius: 10px;
-	
+	width: 350px;
+	height: 200px;
 }
 
-.btncls {
+.btn-black {
   position: relative;
   display: inline-block;
   width: 100px; height: 50px;
@@ -282,7 +284,7 @@ img {
   margin: 0;
  
 }
-.btncls span {         
+.btn-black span {         
   position: relative;
   display: inline-block;
   font-size: 12pt;
@@ -299,11 +301,11 @@ img {
 }
 
 /*--- btn-1 ---*/
-.btncls::before {
+.btn-black::before {
   background-color: #000000;
 }
 
-.btncls span:hover {
+.btn-black span:hover {
   color: #000000;
   background-color: #ffffff;
 }
