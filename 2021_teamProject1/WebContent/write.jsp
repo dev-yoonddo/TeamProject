@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="board.BoardDAO" %>
 <%@ page import="board.BoardVO" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="board.BoardDAO" %>
 
 <!DOCTYPE html>
 <html>
-
 <head>
 <!-- 화면 최적화 -->
 <meta name="viewport" content="width-device-width", initial-scale="1">
@@ -17,56 +15,36 @@
 	<link rel="icon" href="./images/logo-favicon.png">
 	<link rel="stylesheet" href="css/mainPage.css?after">
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<script defer src="js/scriptForm.js"type="text/javascript"></script>
 	<script defer src="option/jquery/jquery.min.js"></script>
   	<script defer src="option/bootstrap/js/bootstrap.bundle.min.js"></script>
   	<script defer src="https://kit.fontawesome.com/f95555e5d8.js" crossorigin="anonymous"></script>
- <style>
- section{
- 	height: 700px;
- 	display: flex;
-	font-family: 'Nanum Gothic Coding', monospace;
- 	
- }
- .board-container{
- 	width: 80%;
- 	margin: 0 auto;	
- }
- thead{
- 	color: #ffffff;
- }
- a{
- 	text-decoration: none;
- 	color: #646464;
- }
- a:hover{
- 	text-decoration: none;
-  	color: #000000;
- 	
- }
- .btn-black{
- 	float: right;
- }
- </style>
 </head>
-
+<style>
+section{
+	display: flex;
+	height: 700px;
+	padding-top: 50px;
+}
+.board-container{
+	width: 70%;
+	margin: 0 auto;
+}
+.btn-black{
+	float: right;
+	width: 120px;
+}
+</style>
 <body>
-		<%
-		String userID = null;
-		if(session.getAttribute("userID") != null){
-			userID = (String) session.getAttribute("userID");
-		} //로그인 확인 후 id값 얻어오기
-		int pageNumber = 1; //기본 페이지
-		if(request.getParameter("pageNumber") != null){
-			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-		}
-		%>
-		<%/* 
-		// 세션값 가져오기
-		String id = (String) session.getAttribute("userID"); // Object 타입이므로 다운캐스팅
-		*/%>
+		
+	<% 
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+	} //로그인 확인 후 id값 얻어오기
+	%>
 		<!-- header start-->
 	<header id="header" >
 	<!-- header 위 -->
@@ -123,62 +101,30 @@
 	</header>
 	<!-- header end-->
 	
-	<!-- section start -->
 	<section>
 		<div class="board-container">
-		<h4 style="font-weight: bold; color: #646464;">문의하기</h4>
 			<div class="row">
-				<table class="table table-striped" style="text-align: center; border: 3px solid #ffffff; ">
-					<thead>
-						<tr>
-							<th style="background-color: #464646; text-align: center;">번호</th>
-							<th style="background-color: #464646; text-align: center;">제목</th>
-							<th style="background-color: #464646; text-align: center;">작성자</th>
-							<th style="background-color: #464646; text-align: center;">작성일</th>
-							
-						</tr>
-					</thead>
-					<tbody>
-						<%
-							BoardDAO bdDAO = new BoardDAO();
-							ArrayList<BoardVO> list = bdDAO.getList(pageNumber);
-							for(int i = 0; i < list.size(); i++){
-						%>
-						<tr>
-							<td style="background-color: #ffffff"><%= list.get(i).getBoardID() %></td>
-							<td><a href="view.jsp?boardID=<%= list.get(i).getBoardID() %>"><%= list.get(i).getBoardTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></a></td>
-							<td><%= list.get(i).getUserID() %></td>
-							<td><%= list.get(i).getBoardDate().substring(0 ,11) + list.get(i).getBoardDate().substring(11, 13) + "시" + list.get(i).getBoardDate().substring(14, 16) + "분" %></td>
-						</tr>
-						<%
-							}
-						%>
-					</tbody>
-				</table>
-				<%
-					if(pageNumber != 1) {
-				%>
-					<a href="customerPage.jsp?pageNumber=<%=pageNumber - 1 %>" class="bn btn-success btn-arrow-left">이전</a>
-				<% 
-					} if(bdDAO.nextPage(pageNumber + 1)){ 
-				%>
-					<a href="customerPage.jsp?pageNumber=<%=pageNumber + 1 %>" class="bn btn-success btn-arrow-left">다음</a>
-				<%
-					}
-				%>	
+				<form method="post" action="writeAction.jsp">
+					<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+						<thead>
+							<tr>
+								<th colspan="2" style="background-color: #eeeeee; text-align: center;">문의하기</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="text" class="form-control" placeholder="글 제목" name="boardTitle" maxlength="50"></td>
+							</tr>
+							<tr>
+								<td><textarea class="form-control" placeholder="글 내용" name="boardContent" maxlength="2048" style="height: 350px;"></textarea></td>
+							</tr>
+						</tbody>
+					</table>
+					<button type="submit" class="btn-black" value="글쓰기"><span>작성하기</span></button>
+				</form>
 			</div>
-		<div>
-		<% 
-			if( userID != null ){
-		%>
-			<button type="button" class="btn-black" onclick="location.href='write.jsp'"><span>글쓰기</span></button>
-		<% 
-			}
-		%>
-		</div>
 		</div>
 	</section>
-	<!-- section end -->
 	
 	<!-- footer start -->
 	<footer><hr>
@@ -202,7 +148,7 @@
 	</footer>
 	<!-- footer end-->
 		<!-- 부트스트랩 참조 영역 -->
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-		<script src="js/bootstrap.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
 </body>
 </html>
