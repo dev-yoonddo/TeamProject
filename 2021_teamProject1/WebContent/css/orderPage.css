@@ -38,6 +38,13 @@ section {
 	font-size: 10pt;
 	
 }
+.topping-list{
+	padding: 10px;
+	border-style: dashed;
+	outline-width: 2px;
+	border-color: #000000;
+	border-radius: 5px; 
+}
 .cheese{
 	outline-style: hidden;
 }

@@ -58,7 +58,7 @@
 		<div class="navmenu-right">	
 			<ul class="login">
 				<li style="font-size: 10pt; color: red;"><%=id %> 님이<br>로그인하였습니다.&nbsp;&nbsp;</li>
-				<li class="btn1-logout"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</button>&nbsp;</li>
+				<li class="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</li>
 			</ul>
 		</div>
 	</nav>
@@ -201,8 +201,8 @@
 							
 								<div id="gangnam-info" class="pop_wrap" style="display:none;">
 									<div class="pop_inner">
-									    <p class="dsc">월-일(공휴일 휴무) 오전09:00-오후11:00까지 정상 영업합니다.<br>지금 주문시 사이즈업 무료 이벤트 중!</p>
-									    <button type="button" class="btncls"><span>닫기</span></button>
+									    <p class="dsc">월-일(공휴일 휴무) 오전09:00-오후11:00까지<br>정상 영업합니다.<br>지금 주문시 사이즈업 무료 이벤트 중!</p>
+									    <button type="button" class="btn-black"><span>닫기</span></button>
 									</div>
 								</div>
 							</div>
@@ -223,8 +223,8 @@
 							
 								<div id="gangbuk-info" class="pop_wrap" style="display:none;">
 									<div class="pop_inner">
-									    <p class="dsc">월-토(공휴일 휴무) 오전09:00-오후09:00까지 영업합니다.<br>매장 방문 30분전 미리 주문하세요.</p>
-									    <button type="button" class="btncls"><span>닫기</span></button>
+									    <p class="dsc">월-토(공휴일 휴무) 오전09:00-오후09:00까지<br>영업합니다.<br>매장 방문 30분전 미리 주문하세요.</p>
+									    <button type="button" class="btn-black"><span>닫기</span></button>
 									</div>
 								</div>
 							</div>
@@ -246,7 +246,7 @@
 								<div id="gaeyang-info" class="pop_wrap" style="display:none;">
 									<div class="pop_inner">
 									    <p class="dsc">주문 전 미리 전화주세요<br>전 메뉴 30% 할인중!!</p>
-									    <button type="button" class="btncls"><span>닫기</span></button>
+									    <button type="button" class="btn-black"><span>닫기</span></button>
 									</div>
 								</div>
 							</div>
@@ -268,7 +268,7 @@
 								<div id="goyang-info" class="pop_wrap" style="display:none;">
 									<div class="pop_inner">
 									    <p class="dsc">방문 포장시 사이드메뉴 1개 무료!<br>새우튀김/치즈볼/감자튀김 중 택1</p>
-									    <button type="button" class="btncls"><span>닫기</span></button>
+									    <button type="button" class="btn-black"><span>닫기</span></button>
 									</div>
 								</div>
 							</div>
@@ -291,8 +291,8 @@
 	    		<p>DOWNLOAD APP</p>
 	    		<div style="display: flex; justify-content: center;">
 	    		<div>
-			    	<a href="https://itunes.apple.com/kr/app/"><i id="app" class="fa-brands fa-apple"></i></a>&nbsp;&nbsp;&nbsp;
-			    	<a href="https://play.google.com/store/apps/"><i id="app" class="fa-brands fa-google-play"></i></a>
+			    	<a class="app" href="https://itunes.apple.com/kr/app/"><i class="fa-brands fa-apple"></i></a>&nbsp;&nbsp;&nbsp;
+			    	<a class="app" href="https://play.google.com/store/apps/"><i class="fa-brands fa-google-play"></i></a>
 		    	</div>
 		    	</div>
 	    	</div>

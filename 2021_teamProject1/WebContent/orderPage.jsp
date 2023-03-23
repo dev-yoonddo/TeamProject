@@ -22,7 +22,7 @@
 <script defer src="js/scriptForm.js" type="text/javascript"></script>
 <script defer src="js/order.js" type="text/javascript"></script>
 <style>
-#btn-tp span{
+.btn-tp span{
 	font-size: 10pt;
 	width: 80px;
 	height: 30px;
@@ -56,7 +56,7 @@
 		<div class="navmenu-right">	
 			<ul class="login">
 				<li style="font-size: 10pt; color: red;"><%=id %> 님이<br>로그인하였습니다.&nbsp;&nbsp;</li>
-				<li class="btn1-logout"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</button>&nbsp;</li>
+				<li class="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</li>
 			</ul>
 		</div>
 	</nav>
@@ -193,25 +193,24 @@
 							<input type="hidden" value="500" id="고구마 소스" />
 
 							<div class="btns">
-								<div class="add">
-									<button type="button" class="btn-black" id="btn-tp" onclick="plusTopping()"><span>추가</span></button>
+								<div class="btn-tp" id="plus">
+									<button type="button" class="btn-black" onclick="plusTopping();"><span>추가</span></button>
 									<!--정보를 넘겨준다.-->
 								</div>
 								
-								<div class="reset">
-									<button type="button" class="btn-black" id="btn-tp" onclick="resetTopping()"><span>초기화</span></button>
+								<div class="btn-tp" id="reset">
+									<button type="button" class="btn-black" onclick="resetTopping();"><span>초기화</span></button>
 									<!--정보를 넘겨준다.-->
 								</div>
 							</div>
 							<br>
 						</form>
 					</div>
+					<!-- 선택된 토핑 목록 -->
 					<form>
-						<div>
-							<h3>선택된 토핑 목록</h3>
-							<hr style="width: 600px; height: 4px;">
+						<h3>선택된 토핑 목록</h3>
+						<div class="topping-list">
 							<span name="select-topping"></span>
-							<hr style="width: 600px; height: 4px;">
 						</div>
 						<br />
 					</form>
@@ -287,7 +286,7 @@
 			<div>
 				<span id="total">총금액: ￦</span> <span id="totalPrice"></span>
 			</div>
-			<button type="button" class="btn-black" id="btn-rq"onclick="orderAlert()"><span>주문요청</span></button>
+			<button type="button" class="btn-black" id="btn-rq" onclick="orderAlert()"><span>주문요청</span></button>
 		</div>
 	</footer>
 	<!-- footer end -->

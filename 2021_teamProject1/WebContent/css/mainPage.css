@@ -55,14 +55,15 @@ li {
 	color: red;
 }
 
-#btn1 {
+.btn1 {
 	padding: 5px;
-	color: gray;
+	color: #505050;
+	cursor: pointer;
 }
 
-#btn1:hover {
+.btn1:hover {
 	font-weight: bold;
-	color: gray;
+	color: #646464;
 }
 
 .category {
@@ -254,7 +255,6 @@ img {
 	background:rgba(0,0,0,.3); 
 	text-align:center;
 	justify-content: center;
-	
 }
 .pop_wrap:after{
 	display:inline-block; 
@@ -271,7 +271,7 @@ img {
 	font-weight: bold;
 	border-radius: 10px;
 	width: 350px;
-	height: 200px;
+	height: auto;
 }
 
 .btn-black {
@@ -339,9 +339,12 @@ footer {
 	border-right-width: thin;
 	border-right-color: #424242;
 }
-#app{
+.app{
 	color: #000000;
 	font-size: 20pt;
+}
+.app:hover{
+	color: #000000;
 }
 .animated-text {
 	font-size:35px;

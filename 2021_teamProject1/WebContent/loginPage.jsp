@@ -59,11 +59,7 @@
 		<div class="navmenu-left">
 			<input type="image" src="./images/smilepizza.PNG" alt="로고" onclick="location.href='mainPage.jsp'"width="250px" height="70px" style="align-items: center;">
 		</div>
-		<!-- 오른쪽 로그인/회원가입 버튼 -->
-		<div class="navmenu-right">	
-			<ul class="login">
-			</ul>
-		</div>
+		
 	</nav>
 	<!-- header 아래 -->
 	<div class="category">

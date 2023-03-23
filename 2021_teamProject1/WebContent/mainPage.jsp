@@ -58,8 +58,8 @@
 		<!-- 오른쪽 로그인/회원가입 버튼 -->
 		<div class="navmenu-right">	
 			<ul class="login">
-				<li class="btn1-login"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='loginPage.jsp'">로그인</button>&nbsp;</li>
-				<li class="btn1-join"><button type="button" class="btn btn-outline-gray" id="btn1" onclick="location.href='joinPage.jsp'">회원가입</button></li>
+				<li class="btn1" onclick="location.href='loginPage.jsp'">로그인&nbsp;&nbsp;&nbsp;&nbsp;</li>
+				<li class="btn1" onclick="location.href='joinPage.jsp'">회원가입<li>
 			</ul>
 		</div>
 	</nav>
@@ -292,8 +292,8 @@
 	    		<p>DOWNLOAD APP</p>
 	    		<div style="display: flex; justify-content: center;">
 	    		<div>
-			    	<a href="https://itunes.apple.com/kr/app/"><i id="app" class="fa-brands fa-apple"></i></a>&nbsp;&nbsp;&nbsp;
-			    	<a href="https://play.google.com/store/apps/"><i id="app" class="fa-brands fa-google-play"></i></a>
+			    	<a class="app" href="https://itunes.apple.com/kr/app/"><i class="fa-brands fa-apple"></i></a>&nbsp;&nbsp;&nbsp;
+			    	<a class="app" href="https://play.google.com/store/apps/"><i class="fa-brands fa-google-play"></i></a>
 		    	</div>
 		    	</div>
 	    	</div>
