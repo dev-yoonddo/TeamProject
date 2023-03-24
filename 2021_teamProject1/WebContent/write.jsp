@@ -14,29 +14,15 @@
 <title>TT PIZZA</title>
 	<link rel="icon" href="./images/logo-favicon.png">
 	<link rel="stylesheet" href="css/mainPage.css?after">
+	<link rel="stylesheet" href="css/board.css?after">
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
-	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<script defer src="js/scriptForm.js"type="text/javascript"></script>
 	<script defer src="option/jquery/jquery.min.js"></script>
   	<script defer src="option/bootstrap/js/bootstrap.bundle.min.js"></script>
   	<script defer src="https://kit.fontawesome.com/f95555e5d8.js" crossorigin="anonymous"></script>
+	
 </head>
-<style>
-section{
-	display: flex;
-	height: 700px;
-	padding-top: 50px;
-}
-.board-container{
-	width: 70%;
-	margin: 0 auto;
-}
-.btn-black{
-	float: right;
-	width: 120px;
-}
-</style>
 <body>
 		
 	<% 
@@ -102,13 +88,14 @@ section{
 	<!-- header end-->
 	
 	<section>
-		<div class="board-container">
+		<div class="board-container"><br>
+		<h4 style="font-weight: bold; color: #646464;">문의하기</h4><br>
 			<div class="row">
 				<form method="post" action="writeAction.jsp">
 					<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 						<thead>
 							<tr>
-								<th colspan="2" style="background-color: #eeeeee; text-align: center;">문의하기</th>
+								<th colspan="2" style="background-color: #464646; text-align: center; color: #ffffff;">문의하기</th>
 							</tr>
 						</thead>
 						<tbody>

@@ -9,35 +9,34 @@
 <html>
 <head>
 <!-- 화면 최적화 -->
-<meta name="viewport" content="width-device-width" , initial-scale="1">
-<meta charset="UTF-8">
-
+<meta name="viewport" content="width-device-width" , initial-scale="1" charset="UTF-8">
 <title>피자가게</title>
-<link rel="icon" href="./images/logo-favicon.png">
-<link rel="stylesheet" href="css/mainPage.css?after">
-<link rel="stylesheet" href="css/orderPage.css?after">
-<link href="./css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script defer src="option/jquery/jquery.min.js"></script>
-<script defer src="js/scriptForm.js" type="text/javascript"></script>
-<script defer src="js/order.js" type="text/javascript"></script>
-<style>
-.btn-tp span{
-	font-size: 10pt;
-	width: 80px;
-	height: 30px;
-	padding: 5px;
-	margin: 0;
-}
-#btn-rq span{
-	font-size: 13pt;
-	width: 100px;
-	height: 40px;
-	padding: 5px;
-	margin: 0;
-	align-items: center;
-}
-</style>
+	
+	<link rel="icon" href="./images/logo-favicon.png">
+	<link rel="stylesheet" href="css/mainPage.css?after">
+	<link rel="stylesheet" href="css/orderPage.css?after">
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script defer src="option/jquery/jquery.min.js"></script>
+	<script defer src="js/scriptForm.js" type="text/javascript"></script>
+	<script defer src="js/order.js" type="text/javascript"></script>
+	<style>
+	.btn-tp span{
+		font-size: 10pt;
+		width: 80px;
+		height: 30px;
+		padding: 5px;
+		margin: 0;
+	}
+	#btn-rq span{
+		font-size: 13pt;
+		width: 100px;
+		height: 40px;
+		padding: 5px;
+		margin: 0;
+		align-items: center;
+	}
+	</style>
 </head>
 <body>
 
@@ -214,13 +213,12 @@
 				
 				<!-- 추가,초기화 버튼과 연결해  선택된 토핑 목록 보여주기 -->
 				<form>
-					<h3>선택된 토핑 목록</h3>
-					<div class="topping-list">
-						<span name="select-topping"></span>
-					</div>
-					<br />
-				</form>
-
+					<h3>선택된 토핑 목록</h3>				
+					<hr style="width: 600px; height: 2px;">
+						<div class="topping-list">
+							<span name="select-topping"></span>
+						</div>
+				</form><br><br>
 
 				<!-- cheese -->
 				<h3>치즈 선택</h3>

@@ -22,7 +22,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인을 하세요')");
-			script.println("location.href = 'login.jsp'");
+			script.println("location.href = 'loginPage.jsp'");
 			script.println("</script>");
 		}
 		int boardID = 0;
@@ -34,7 +34,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("location.href = 'customerPage.jsp'");
 			script.println("</script>");
 		}
 		BoardVO board = new BoardDAO().getBoardVO(boardID);
@@ -42,7 +42,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("location.href = 'customerPage.jsp'");
 			script.println("</script>");
 		}else{
 			//매개변수 검증
@@ -68,7 +68,7 @@
 						PrintWriter script = response.getWriter();
 						script.println("<script>");
 						script.println("alert('작성이 완료되었습니다.')");
-						script.println("location.href = 'board.jsp'");
+						script.println("location.href = 'customerPage.jsp'");
 						script.println("</script>");
 					}
 					

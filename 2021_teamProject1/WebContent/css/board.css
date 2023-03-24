@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Noto+Serif+KR:wght@200&display=swap');@import url('https://webfontworld.github.io/TheJamsil/TheJamsil.css');
+
+section{
+	height: 800px;
+	display: flex;
+	padding-top: 50px;
+	font-family: 'Nanum Gothic Coding', monospace;
+}
+.board-container{
+	width: 70%;
+	margin: 0 auto;	
+}
+thead{
+	color: #ffffff;
+}
+
+.btn-black{
+	float: right;
+}
+.btn-black span{
+	padding: 5px;
+	margin: 0;
+	height: 35px;
+}
+.td{
+	border-right-style: solid;
+	border-right-width: 0.3mm;
+	border-bottom: none;
+	border-color: #aaaaaa;
+}

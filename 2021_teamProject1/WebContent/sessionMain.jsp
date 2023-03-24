@@ -52,7 +52,7 @@
 	%>
 	<nav class="navmenu">
 		<div class="navmenu-left">
-			<input type="image" src="./images/smilepizza.PNG" alt="로고" onclick="location.href='sessionMain.jsp'" width="250px" height="70px" style="align-items: center;">
+			<input type="image" src="./images/smilepizza.PNG" alt="로고" width="250px" height="70px" style="align-items: center;">
 		</div>
 		
 		<div class="navmenu-right">	
@@ -82,7 +82,7 @@
 	
 		<!-- 플로팅 배너 -->
 		<div class="floatingBanner">
-	    	<a href="/event/viewHtml?seq=1225&amp;gubun=E0200">
+	    	<a href="orderPage.jsp">
 	        	<img src="images/floatBN.png">
 	        </a>
 	        <button class="btn-close"></button>
