@@ -39,21 +39,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>   
     <!-- map -->
-
-	<style>
-		
-	</style>
 	
 </head>
-<body>
-		
+<body>		
 	<!-- header start-->
 	<header id="header" >
 	<!-- header 위 -->
 	<nav class="navmenu">
 		<!-- 왼쪽 로고 -->
 		<div class="navmenu-left">
-			<input type="image" src="./images/smilepizza.PNG" alt="로고" width="250px" height="70px" style="align-items: center;">
+			<input type="image" src="./images/smilepizza.PNG" alt="로고" width="200px" height="60px" style="align-items: center;">
 		</div>
 		<!-- 오른쪽 로그인/회원가입 버튼 -->
 		<div class="navmenu-right">	
@@ -79,10 +74,9 @@
 	
 	<!-- section start-->
 	<section>
-	
 		<!-- 플로팅 배너 -->
 		<div class="floatingBanner">
-	    	<a href="/event/viewHtml?seq=1225&amp;gubun=E0200">
+	    	<a onclick="loginOK()">
 	        	<img src="images/floatBN.png">
 	        </a>
 	        <button class="btn-close"></button>
@@ -402,7 +396,6 @@
         circle_marker_82f83dc5b5ee47ef8274af526034881d.bindPopup(popup_f40c632e484948cdb6a81cc9b8bb0955)
         ; 
 </script>
-
 
 </body>
 </html>

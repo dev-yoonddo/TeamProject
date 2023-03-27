@@ -94,21 +94,27 @@ setInterval("flashit()", speed)
 
 //지점에서 상세보기 버튼을 클릭했을 때 정보를 보여주는 팝업창 띄우기
 var target = document.querySelectorAll('.open_info');
-var btnPopClose = document.querySelectorAll('.pop_wrap .btn-black');
+var btnPopClose = document.querySelectorAll('.pop_wrap .btn-black')
 var targetID;
 
 	// 팝업 열기
 	for(var i = 0; i < target.length; i++){
 	  target[i].addEventListener('click', function(){
-	    targetID = this.getAttribute('href');
-	    document.querySelector(targetID).style.display = 'block';
+	    targetID = this.getAttribute('href')
+	    document.querySelector(targetID).style.display = 'block'
 	  });
 	}
 	
 	// 팝업 닫기
 	for(var j = 0; j < target.length; j++){
 	  btnPopClose[j].addEventListener('click', function(){
-	    this.parentNode.parentNode.style.display = 'none';
+	    this.parentNode.parentNode.style.display = 'none'
 	  });
 	}
-	
+
+
+function cmtAction(){
+	document.getElementById('cmt-section').style.display = 'block'
+	document.getElementById('cmt-write').style.display = 'none'
+
+}
