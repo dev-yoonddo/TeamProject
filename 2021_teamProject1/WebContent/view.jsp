@@ -39,15 +39,13 @@ String userID = null;
 if(session.getAttribute("userID") != null){
 	userID = (String) session.getAttribute("userID");
 }
+int cmtID = 0;
+if(request.getParameter("cmtID")!=null)
+	cmtID = Integer.parseInt(request.getParameter("cmtID"));
 //boardID 가져오기
 int boardID = 0;
 if(request.getParameter("boardID") != null){
 	boardID = Integer.parseInt(request.getParameter("boardID"));
-}
-int pageNumber=1;
-// pageNumber는 URL에서 가져온다.
-if(request.getParameter("pageNumber")!=null){
-	pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
 }
 
 //글이 유효하다면 1이상의 숫자가 반환되기 때문에 boardID == 0일때  글이 유효하지 않다는 알림창 띄우기
@@ -60,9 +58,9 @@ if(boardID == 0){
 }
 
 BoardVO board = new BoardDAO().getBoardVO(boardID);
+CommentVO comment = new CommentDAO().getCommentVO(cmtID);
 %>
 
-	
 <!-- header -->
 <header id="header" >
 <!-- header 위 -->
@@ -178,56 +176,62 @@ BoardVO board = new BoardDAO().getBoardVO(boardID);
 			}
 		%>
 		
-		<div id="cmt-section" style="display: none;">
-				<form method="post" action="commentAction.jsp">
-						<table class="table table-striped"
-							style="text-align: center; border: 1px solid #dddddd">
-							<%-- 홀,짝 행 구분 --%>
-							<thead>
-								<tr>
-									<th colspan="3"
-										style="background-color: #eeeeeee; text-align: center;">댓글</th>
-								</tr>
-							</thead>
-							<tbody>
-							
-								<%
-									CommentDAO cmtDAO=new CommentDAO();
-									ArrayList<CommentVO> list=cmtDAO.getList(boardID, pageNumber);
-									for(int i=list.size()-1;i>=0;i--){
-								%>
-		
-								<tr>
-									<td style="text-align: left;"><%= list.get(i).getCmtContent() %></td>
-									<td style="text-align: right;"><%= list.get(i).getUserID() %>
-									<a href="update.jsp?boardID=<%= boardID %>" class="btn">수정</a>
-									<a href="delete.jsp?boardID=<%= boardID %>" class="btn ">삭제</a>
-									</td>
-								</tr>
-							
-								<%
-										}
-								%>
-								<td><textarea type="text" class="form-control"
-										placeholder="댓글을 입력하세요." name="cmtContent" maxlength="2048"></textarea></td>
-								<td style="text-align: left; "></td>
-							
-							</tbody>
-						</table>
-						<button type="submit" class="btn-black" id="cmt-write-ok"><span>완료</span></button>
-					</form>
-				<br>			
-				<%
-					if(userID!=null && userID.equals(board.getUserID())){
-				%>
-					<a href="update.jsp?boardID=<%= boardID %>" class="btn btn-primary">수정</a>
-					<a href="deleteAction.jsp?boardID=<%= boardID %>" class="btn btn-primary">삭제</a>
-				
-				<%
-				} 
-				%>
-				
-			</div>
+		<div class="container">
+         <div class="row">
+            <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+               <tbody>
+               <tr>
+                  <td align="left" bgcolor="skyblue">댓글</td>
+               </tr>
+               <tr>
+                  <%
+                     CommentDAO cmtDAO = new CommentDAO();
+                     ArrayList<CommentVO> list = cmtDAO.getList(boardID);
+                     for(int i=0; i<list.size(); i++){
+                  %>
+                  <div class="container">
+                  	<div class="row">
+                  	<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">                  	
+                  	<tbody>
+                  		<tr>
+                  			<td align="left"><%= list.get(i).getUserID() %></td>
+                  			
+                  			<td align="right"><%= list.get(i).getCmtDate().substring(0,11)+list.get(i).getCmtDate().substring(11,13)+"시"+list.get(i).getCmtDate().substring(14,16)+"분" %></td>
+                  		</tr>
+                  		
+                  		<tr>
+                  			<td align="left"><%= list.get(i).getCmtContent() %></td>
+                  			<td align="right"><a href="commentUpdate.jsp?boardID=<%=boardID%>&cmtID=<%=list.get(i).getCmtID()%>" class="btn btn-warning">수정</a>
+                  			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="commentDeleteAction.jsp?boardID=<%=boardID%>&cmtID=<%=list.get(i).getCmtID() %>" class="btn btn-danger">삭제</a></td>
+                  		</tr>
+                  	</tbody>
+                  	</table>
+                  	</div>
+                  </div>
+                  <%
+                     }
+                  %>
+                  </tr>
+            </table>
+         </div>
+      </div><br>
+	<div id="cmt-section" style="display: none;">
+      <div class="row">
+            <form method="post" action="commentAction.jsp?boardID=<%= boardID %>">
+            <table class="table table-bordered" style="text-align: center; border: 1px solid #dddddd">
+               <tbody>
+                  <tr>
+                     <td align="left"><%=userID %></td>
+                  </tr>
+                  <tr>
+                     <td><input type="text" class="form-control" placeholder="댓글 쓰기" name="cmtContent" maxlength="300"></td>
+                  </tr>
+               </tbody>
+            </table>
+            <input type="submit" class="btn btn-success pull-right" value="댓글 쓰기">
+            </form>
+      </div>
+   </div>
 	</div>
 </section>
 <!-- section -->
@@ -253,6 +257,14 @@ BoardVO board = new BoardDAO().getBoardVO(boardID);
    	
 </footer>
 <!-- footer -->
-
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function nwindow(cmtBID,boardID,cmtID){
+		window.name = "commentParant";
+		var url= "commentUpdate.jsp?cmtBID="+cmtBID+"&boardID="+boardID+"&cmtID="+cmtID;
+		window.open(url,"","width=600,height=230,left=300");
+	}
+	</script>
 </body>
 </html>

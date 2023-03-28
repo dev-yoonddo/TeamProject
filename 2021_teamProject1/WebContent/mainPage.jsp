@@ -329,7 +329,7 @@
 		  window.scrollTo({top:1000, left:0, behavior:'smooth'});
 		}
 		
-		//store
+		//store 숨기기
 		$('.store').hide();
 		$('.nostore').hide();
 	</script>

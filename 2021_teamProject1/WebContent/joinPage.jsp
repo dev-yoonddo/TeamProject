@@ -13,13 +13,11 @@
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 	<script defer src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 	<script defer src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script defer src="js/scriptForm.js"type="text/javascript"></script>
-	
+	<script defer src="js/passwordCheck.js"type="text/javascript"></script>
 </head>
-
 
 <!-- register style -->
 <style type="text/css">
@@ -80,7 +78,7 @@
 <div class="join-section">
 	<div class="join-form">
 		<h3>회원가입</h3><br>
-		<form role="form" action="joinAction.jsp" method="post">
+		<form role="form" action="joinAction.jsp" method="post" onsubmit="return passwordCheck(this)">
 		  <div class="mb-3">
 		    <input type="text" name="userID" id="userID" class="form-control input-lg" placeholder="아이디 입력">
 		  </div>
@@ -96,12 +94,12 @@
 		  
 		  <div class="mb-3">
 			<div class="form-group">
-				<input type="password" name="userPassword" id="userPassword" class="form-control input-lg" placeholder="비밀번호" tabindex="5" onkeyup="passwordCheck()">
+				<input type="password" name="userPassword" id="userPassword" class="form-control input-lg" placeholder="비밀번호" tabindex="5" onkeyup="passwordCheck2()">
 			</div>
 		</div>
 		<div class="mb-3" align="center">
 			<div class="form-group">
-				<input type="password" name="userPassword1" id="userPassword1" class="form-control input-lg" placeholder="비밀번호 확인" tabindex="6" onkeyup="passwordCheck()">
+				<input type="password" name="userPassword1" id="userPassword1" class="form-control input-lg" placeholder="비밀번호 확인" tabindex="6" onkeyup="passwordCheck2()">
 			</div>
 			<div class="check" style="text-align: center;">
 				<h5 id="passwordCheckMessage" style="color: red; font-size: 14px;"></h5>
@@ -205,16 +203,6 @@ $(function () {
         init();
     });
 });
-
-function passwordCheck() {
-	var userPassword = $('#userPassword').val();
-	var userPassword1 = $('#userPassword1').val();
-	if (userPassword != userPassword1) {
-		$('#passwordCheckMessage').html('비밀번호가 서로 일치하지 않습니다.');
-	} else {
-		$('#passwordCheckMessage').html('');
-	}
-}
 
 </script>
 
