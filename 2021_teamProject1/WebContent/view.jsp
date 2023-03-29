@@ -39,9 +39,12 @@
 	padding-top: 100px;
 }
 #cmt-btn{
-	width: 70px;
+	width: 80px;
+	
 }
-
+.cmt-write{
+	padding-top: 30px;
+}
 </style>
 <body>
 <%
@@ -140,11 +143,10 @@ CommentVO comment = new CommentDAO().getCommentVO(cmtID);
 		<div class="inquiry">
 			<div class="row"><br>
 				<h4 style="font-weight: bold; color: #646464;">문의 글</h4><br><br>
-				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd;">
 					<thead>
 						<tr>
 							<th colspan="3" style="background-color: #464646; text-align: center;">문의한 글 보기</th>
-							
 						</tr>
 					</thead>
 					<tbody>
@@ -182,6 +184,7 @@ CommentVO comment = new CommentDAO().getCommentVO(cmtID);
 			%>
 						<button type="button" class="btn-black" onclick="location.href='update.jsp?boardID=<%= boardID%>'"><span>수정</span></button>
 						<button type="button" class="btn-black" id="btn-del" onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='deleteAction.jsp?boardID=<%= boardID%>'}"><span>삭제</span></button>
+						<button type="button" class="btn-black" id="cmt-write-btn" onclick="cmtAction()"><span>답변쓰기</span></button>
 			<% 
 					}
 				}
@@ -189,37 +192,36 @@ CommentVO comment = new CommentDAO().getCommentVO(cmtID);
 			</div>
 			<div class="cmt-view">
 	         	<div class="row">
-	         		<a style="font-size: 15pt; color: #646464; float: left;">답변<br></a><hr><br>
-		            <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-		                <%
-		                   CommentDAO cmtDAO = new CommentDAO();
-		                   ArrayList<CommentVO> list = cmtDAO.getList(boardID);
-		                   for(int i=0; i<list.size(); i++){
-		                %>
-		               	<tbody>
-		               		<tr>
-		               			<td align="left"><%= list.get(i).getUserID() %></td>
-		               			<td align="right"><%= list.get(i).getCmtDate().substring(0,11)+list.get(i).getCmtDate().substring(11,13)+"시"+list.get(i).getCmtDate().substring(14,16)+"분" %></td>
-		               		</tr>
-		               		<tr>
-		               			<td align="left"><%= list.get(i).getCmtContent() %></td>
-		               			<%
-		               				if(userID.equals(list.get(i).getUserID())){
-		               			%>
-		               			<td align="right">
-		               			<button type="button" class="btn-black" id="cmt-btn" onclick="if(confirm('답글을 삭제하시겠습니까?')){location.href='commentDeleteAction.jsp?boardID=<%= boardID%>&cmtID=<%=list.get(i).getCmtID() %>'}"><span>삭제</span></button>
-		               			</td>
-		               			<%
-		               				} 
-		               			%>
-		               		</tr>
-		               	</tbody>
+	         		<h5 style="font-size: 15pt; color: #646464; float: left;">답변<br></h5><hr style="width: 1000px;">
+	                <%
+	                   CommentDAO cmtDAO = new CommentDAO();
+	                   ArrayList<CommentVO> list = cmtDAO.getList(boardID);
+	                   for(int i=0; i<list.size(); i++){
+	                %>
+	               	<table class="table table-striped" style="table-layout: fixed;">
+	               		<tr style="">
+	               			<td align="left"><%= list.get(i).getUserID() %></td>
+	               			<td align="right"><%= list.get(i).getCmtDate().substring(0,11)+list.get(i).getCmtDate().substring(11,13)+"시"+list.get(i).getCmtDate().substring(14,16)+"분" %></td>
+	               		</tr>
+	               	</table>
+	               	<table style="margin-bottom: 20px;">
+	               		<tr>
+	               			<td><%= list.get(i).getCmtContent() %></td>
+	               		</tr>
+		           	</table>
+            			<%
+            				if(userID != null && userID.equals(list.get(i).getUserID())){
+            			%>
+         				<div style="float: right;">
+            			<button type="button" class="btn-black" id="cmt-btn" onclick="if(confirm('답글을 삭제하시겠습니까?')){location.href='commentDeleteAction.jsp?boardID=<%= boardID%>&cmtID=<%=list.get(i).getCmtID() %>'}"><span>삭제</span></button>
+            			</div>
+            			<%
+            				}
+            			%>
 	                  <%
 	                     }
 	                  %>
-	                 
-		           </table>
-	         	</div>
+	         	</div>  
 	      	</div>
 	
 			<div id="cmt-write" style="display: none;">

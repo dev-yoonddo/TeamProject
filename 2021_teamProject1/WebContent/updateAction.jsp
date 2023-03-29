@@ -67,7 +67,7 @@
 					else {
 						PrintWriter script = response.getWriter();
 						script.println("<script>");
-						script.println("alert('작성이 완료되었습니다.')");
+						script.println("alert('수정이 완료되었습니다.')");
 						script.println("location.href = 'customerPage.jsp?'");
 						script.println("</script>");
 					}
