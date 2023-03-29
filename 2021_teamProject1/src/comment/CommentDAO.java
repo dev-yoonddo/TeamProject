@@ -14,7 +14,7 @@ public class CommentDAO {
 	
 	public CommentDAO() {
 		try {
-		 	String dbURL = "jdbc:mysql://localhost:3306/2021_teamproject1?useUnicode=true&characterEncoding=UTF-8";
+		 	String dbURL = "jdbc:mysql://localhost:3306/2021_teamproject1?serverTimezone=UTC";
 		 	String dbID = "root";
 		 	String dbPassword = "9228";
 		 	Class.forName("com.mysql.jdbc.Driver");
@@ -57,9 +57,9 @@ public class CommentDAO {
 			pstmt.setString(1, cmtContent);
 			pstmt.setInt(2, getNext());
 			pstmt.setString(3, userID);
-			pstmt.setInt(4, boardID);
+			pstmt.setInt(4, 1);
 			pstmt.setString(5, getDate());
-			pstmt.setInt(6, 1);
+			pstmt.setInt(6, boardID);
 			pstmt.executeUpdate();
 			return getNext();
 		}catch(Exception e) {
@@ -93,9 +93,9 @@ public class CommentDAO {
 				cmt.setCmtContent(rs.getString(1));
 				cmt.setCmtID(rs.getInt(2));
 				cmt.setUserID(rs.getString(3));
-				cmt.setBoardID(rs.getInt(4));
+				cmt.setCmtAvailable(rs.getInt(4));
 				cmt.setCmtDate(rs.getString(5));
-				cmt.setCmtAvailable(rs.getInt(6));
+				cmt.setBoardID(rs.getInt(6));
 				list.add(cmt);
 			}
 		}catch(Exception e) {
@@ -105,7 +105,7 @@ public class CommentDAO {
 	}
 	
 	public int update(String cmtContent, int boardID, int cmtID) {
-		String SQL = "UPDATE comment SET cmtContent = ? WHERE cmtID LIKE ?";
+		String SQL = "UPDATE comment SET cmtContent = ? WHERE boardID = ? AND cmtID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, cmtContent);
@@ -128,9 +128,9 @@ public class CommentDAO {
 				cmt.setCmtContent(rs.getString(1));
 				cmt.setCmtID(rs.getInt(2));
 				cmt.setUserID(rs.getString(3));
-				cmt.setBoardID(rs.getInt(4));
+				cmt.setCmtAvailable(rs.getInt(4));
 				cmt.setCmtDate(rs.getString(5));
-				cmt.setCmtAvailable(rs.getInt(6));
+				cmt.setBoardID(rs.getInt(6));
 				return cmt;
 			}
 		}catch(Exception e) {

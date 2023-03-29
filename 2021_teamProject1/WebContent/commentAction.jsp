@@ -1,6 +1,7 @@
 <%@page import="comment.CommentDAO"%>
 <%@page import="comment.CommentVO"%>
 <%@page import="java.io.PrintWriter"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <%@ page import="file.FileDAO" %>
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.Enumeration" %>
@@ -63,6 +64,7 @@
 	 		else{
                 PrintWriter script = response.getWriter();
                 script.println("<script>");
+                script.println("alert('댓글이 작성되었습니다.')");
                 script.println("location.href=document.referrer;");
                 script.println("</script>");
              }
