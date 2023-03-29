@@ -78,7 +78,7 @@ String id = (String) session.getAttribute("userID"); // Object 타입이므로 �
 				}else{
 			%>
 			<ul class="login">
-				<li style="font-size: 10pt; color: red;"><%=userID %> 님이<br>로그인하였습니다.&nbsp;&nbsp;</li>
+				<li style="font-size: 10pt; color: red;"><%=userID %> 님<br>안녕하세요&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				<li class="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</li>
 			</ul>
 			<% 
@@ -108,7 +108,7 @@ String id = (String) session.getAttribute("userID"); // Object 타입이므로 �
 				}
 			%>
 		</ul>
-		<hr><br>
+		<hr>
 	</div>
 </header>
 <!-- header -->

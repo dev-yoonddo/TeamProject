@@ -114,7 +114,7 @@ var targetID;
 
 
 function cmtAction(){
-	document.getElementById('cmt-section').style.display = 'block'
-	document.getElementById('cmt-write').style.display = 'none'
+	document.getElementById('cmt-write').style.display = 'block'
+	document.getElementById('cmt-write-btn').style.display = 'none'
 
 }

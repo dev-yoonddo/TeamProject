@@ -57,7 +57,7 @@
 		
 		<div class="navmenu-right">	
 			<ul class="login">
-				<li style="font-size: 10pt; color: red;"><%=id %> 님이<br>로그인하였습니다.&nbsp;&nbsp;</li>
+				<li style="font-size: 10pt; color: red;"><%=id %> 님<br>안녕하세요&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				<li class="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</li>
 			</ul>
 		</div>
@@ -209,7 +209,7 @@
 						</li>
 						<li class="store" id="0102">
 							<dl>
-								<dt>강북점	
+								<dt>강동점	
 									<span class="tel" >02-1234-5679</span>
 								</dt>
 								<dd class="address">

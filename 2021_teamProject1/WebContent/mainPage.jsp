@@ -204,7 +204,7 @@
 						</li>
 						<li class="store" id="0102">
 							<dl>
-								<dt>강북점	
+								<dt>강동점	
 									<span class="tel" >02-1234-5679</span>
 								</dt>
 								<dd class="address">

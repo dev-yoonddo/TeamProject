@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Noto+Serif+KR:wght@200&display=swap');@import url('https://webfontworld.github.io/TheJamsil/TheJamsil.css');
 
 section{
-	height: 800px;
+	height: auto;
 	display: flex;
+	margin: 0;
+	padding: 0;
 	padding-top: 50px;
+	padding-bottom: 100px;
 	font-family: 'Nanum Gothic Coding', monospace;
 }
 .board-container{
-	width: 70%;
+	width: 1000px;
 	margin: 0 auto;	
 }
 thead{
