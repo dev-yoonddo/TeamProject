@@ -1,6 +1,7 @@
 package board;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -84,7 +85,6 @@ public class BoardDAO {
 				board.setBoardDate(rs.getString(4));
 				board.setBoardContent(rs.getString(5));
 				board.setBoardAvailable(rs.getInt(6));
-
 				list.add(board);
 			}
 		} catch (Exception e) {
@@ -161,6 +161,28 @@ public class BoardDAO {
 		}
 		return -1; //데이터베이스 오류
 	}
-	
+	public ArrayList<BoardVO> getSearch(String searchField, String searchText){//특정한 리스트를 받아서 반환
+	      ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+	      String SQL ="SELECT * FROM board WHERE "+searchField.trim();
+	      try {
+	    	  if(searchText != null && !searchText.equals("") ){//이거 빼면 안 나온다ㅜ 왜지?
+	            }
+	            PreparedStatement pstmt=conn.prepareStatement(SQL);
+				rs=pstmt.executeQuery();//select
+	         while(rs.next()) {
+	        	BoardVO board = new BoardVO();
+	        	board.setBoardID(rs.getInt(1));
+	        	board.setBoardTitle(rs.getString(2));
+	        	board.setUserID(rs.getString(3));
+	        	board.setBoardDate(rs.getString(4));
+	        	board.setBoardContent(rs.getString(5));
+	        	board.setBoardAvailable(rs.getInt(6));
+	            list.add(board);//list에 해당 인스턴스를 담는다.
+	         }         
+	      } catch(Exception e) {
+	         e.printStackTrace();
+	      }
+	      return list;//ㄱㅔ시글 리스트 반환
+	   }
 }
 

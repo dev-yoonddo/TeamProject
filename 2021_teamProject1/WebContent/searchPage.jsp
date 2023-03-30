@@ -41,23 +41,28 @@ float: left;
 }
 </style>
 </head>
-
 <body>
-<%
-String userID = null;
-if(session.getAttribute("userID") != null){
-	userID = (String) session.getAttribute("userID");
-} //로그인 확인 후 id값 얻어오기
-int pageNumber = 1; //기본 페이지
-if(request.getParameter("pageNumber") != null){
-	pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-}
-%>
-<%/* 
-// 세션값 가져오기
-String id = (String) session.getAttribute("userID"); // Object 타입이므로 다운캐스팅
-*/%>
-
+	<%
+		String userID = null;
+		if (session.getAttribute("userID") != null) {//주어진 userID에 연결된 속성값을 얻어낸다.
+			userID = (String) session.getAttribute("userID");
+		}
+		if (request.getParameter("searchField") == "0" || request.getParameter("searchText") == null
+				|| request.getParameter("searchField").equals("0")
+				|| request.getParameter("searchText").equals("")) {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('입력이 안 된 사항이 있습니다.')");
+			script.println("history.back()");
+			script.println("</script>");
+		}
+		//현재 페이지가 몇번째 페이지 인가
+		int pageNumber = 1;//기본적으로 1페이지
+		if (request.getParameter("pageNumber") != null){
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		}
+			BoardVO board = new BoardVO();
+	%>
 <!-- header -->
 <header id="header" >
 	<!-- header 위 -->
@@ -121,11 +126,13 @@ String id = (String) session.getAttribute("userID"); // Object 타입이므로 �
 			<form method="post" name="search" action="searchPage.jsp">
 				<table class="pull-right">
 					<tr>
-						<td><select class="form-control" name="searchField">
-								<option value="0">선택</option>
-								<option value="userID">아이디</option>
-								<option value="boardTitle">제목</option>
-						</select></td>
+						<td>
+						<select class="form-control" name="searchField">
+							<option value="0">선택</option>
+							<option value="userID">아이디</option>
+							<option value="boardTitle">제목</option>
+						</select>
+						</td>
 						<td><input type="text" class="form-control"
 							placeholder="검색어 입력" name="searchText" maxlength="100"></td>
 						<td><button type="submit" class="btn btn-success">검색</button></td>
@@ -150,8 +157,16 @@ String id = (String) session.getAttribute("userID"); // Object 타입이므로 �
 				<tbody>
 					<%
 						BoardDAO boardDAO = new BoardDAO();
-						ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
-						for(int i = 0; i < list.size(); i++){
+						ArrayList<BoardVO> list = boardDAO.getSearch(request.getParameter("searchField"),
+								request.getParameter("searchText"));
+						if (list.size() == 0) {
+							PrintWriter script = response.getWriter();
+							script.println("<script>");
+							script.println("alert('검색결과가 없습니다.')");
+							script.println("history.back()");
+							script.println("</script>");
+						}
+						for (int i = 0; i < list.size(); i++) {
 					%>
 					<tr>
 						<td style="background-color: #ffffff"><%= list.get(i).getBoardID() %></td>
