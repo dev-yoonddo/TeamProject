@@ -82,13 +82,13 @@
 				}
 			%>
 		</ul>
-		<hr><br>
+		<hr>
 	</div>
 	</header>
 	<!-- header end-->
 	
 	<section>
-		<div class="board-container"><br>
+		<div class="board-container">
 		<h4 style="font-weight: bold; color: #646464;">문의하기</h4><br>
 			<div class="row">
 				<form method="post" action="writeAction.jsp">

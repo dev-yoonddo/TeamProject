@@ -5,8 +5,8 @@ section{
 	display: flex;
 	margin: 0;
 	padding: 0;
-	padding-top: 50px;
-	margin-bottom: 100px;
+	padding-top: 100px;
+	margin-bottom: 150px;
 	font-family: 'Nanum Gothic Coding', monospace;
 }
 .board-container{

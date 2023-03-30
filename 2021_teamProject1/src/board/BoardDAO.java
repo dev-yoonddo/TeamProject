@@ -166,6 +166,7 @@ public class BoardDAO {
 	      String SQL ="SELECT * FROM board WHERE "+searchField.trim();
 	      try {
 	    	  if(searchText != null && !searchText.equals("") ){//이거 빼면 안 나온다ㅜ 왜지?
+	                SQL +=" LIKE '%"+searchText.trim()+"%' ORDER BY boardID DESC LIMIT 10";
 	            }
 	            PreparedStatement pstmt=conn.prepareStatement(SQL);
 				rs=pstmt.executeQuery();//select

@@ -28,16 +28,19 @@
 
 <style>
 a{
-text-decoration: none;
-color: #646464;
+	text-decoration: none;
+	color: #646464;
 }
 a:hover{
 	text-decoration: none;
  	color: #000000;
 }
 #prev , #next{
-width: 50px;
-float: left;
+	width: 50px;
+	float: left;
+}
+#cmt-btn{
+	width: 80px;
 }
 </style>
 </head>
@@ -116,27 +119,24 @@ String id = (String) session.getAttribute("userID"); // Object 타입이므로 �
 
 <!-- section -->
 <section>
-	<div class="container">
-		<div class="row">
+	<div class="board-container">
+		<div class="row-2">
 			<form method="post" name="search" action="searchPage.jsp">
-				<table class="pull-right">
+				<table class="search-tb" style="float: right;">
 					<tr>
 						<td><select class="form-control" name="searchField">
 								<option value="0">선택</option>
-								<option value="userID">아이디</option>
 								<option value="boardTitle">제목</option>
+								<option value="userID">아이디</option>
 						</select></td>
 						<td><input type="text" class="form-control"
 							placeholder="검색어 입력" name="searchText" maxlength="100"></td>
-						<td><button type="submit" class="btn btn-success">검색</button></td>
+						<td><button type="submit" class="btn-black" id="cmt-btn"><span>검색</span></button></td>
 					</tr>
-
 				</table>
 			</form>
+		<h4 style="font-weight: bold; color: #646464;">문의목록</h4><br>
 		</div>
-	</div>
-	<div class="board-container">
-	<h4 style="font-weight: bold; color: #646464;">문의목록</h4><br>
 		<div class="row">
 			<table class="table table-striped" style="text-align: center; border: 3px solid #ffffff; ">
 				<thead>
