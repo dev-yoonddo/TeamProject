@@ -22,5 +22,8 @@
 - WAS : Apache Tomcat 8.5<br>
 - Frontend : JavaScript, HTML5, CSS3, Bootstrap<br>
 - Backend : Java, JQuery, Spring
-<br><br><br>
+- DB 관계도
 
+![DB](https://user-images.githubusercontent.com/84071666/229287138-09d04701-c10b-4ef1-92dd-9a64a0e9f582.PNG)
+
+<br><br><br>
