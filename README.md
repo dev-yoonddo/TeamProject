@@ -50,11 +50,33 @@
 
 <br><br>
 
+<div align="center">
+
 ![main1](https://user-images.githubusercontent.com/84071666/229292646-897b825d-f42c-44d6-ac8f-c3f67ea68837.PNG)
 
 ![main2](https://user-images.githubusercontent.com/84071666/229292260-244012f1-e353-4680-8146-c9a719e609b5.PNG)
 
 ![main3](https://user-images.githubusercontent.com/84071666/229292263-ded8f0ff-93de-45e6-84b1-9cd1a1c4a562.PNG)
+
+<br><br><br>
+
+<div align="left">
+
+🔘 매장 선택 결과에따라 매장정보가 다르게 , 상세보기 버튼을 눌렀을 때의 결과도 다르게 제작
+
+</div>
+
+<br>
+
+![store1](https://user-images.githubusercontent.com/84071666/229702703-fc9cd08e-5328-41f7-8c40-ba8f21a56e4d.PNG)
+
+![store2](https://user-images.githubusercontent.com/84071666/229702712-f7d46ea8-818a-4651-b6b1-4b4445a31ff5.PNG)
+
+![store3](https://user-images.githubusercontent.com/84071666/229702713-23ad9bf5-d59e-4b4d-b882-bfdf663bdf07.PNG)
+
+![store4](https://user-images.githubusercontent.com/84071666/229702715-28a4be55-21be-4960-a944-08a957de73a6.PNG)
+
+</div>
 
 <br><br>
 
