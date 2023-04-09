@@ -22,7 +22,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	//날짜 가져오기
 	public String getDate() { //현재 시간을 가져오는 함수
 		String SQL = "SELECT NOW()"; //현재 시간을 가져오는 MySQL의 문장
 		try {
@@ -36,7 +36,7 @@ public class BoardDAO {
 		}
 		return ""; //빈 문자열을 반환함으로써 데이터베이스 오류를 알려준다.
 	}
-	
+	//글 번호
 	public int getNext() {
 		String SQL = "SELECT boardID FROM board ORDER BY boardID DESC";
 		try {
@@ -52,7 +52,7 @@ public class BoardDAO {
 		return -1; //데이터베이스 오류 : 게시물 번호로 적절하지 않은 -1 반환
 	}
 	
-	//write 함수 생성
+	//글 작성하기
 	public int write(String boardTitle, String userID, String boardContent) {
 		String SQL = "INSERT INTO board VALUES(?, ?, ?, ?, ?, ?)";
 		try {
@@ -70,6 +70,7 @@ public class BoardDAO {
 		}
 		return -1; //데이터베이스 오류
 	}
+	//글 목록 출력
 	public ArrayList<BoardVO> getList(int pageNumber){
 		String SQL = "SELECT * FROM board WHERE boardID < ? AND boardAvailable = 1 ORDER BY boardID DESC LIMIT 10";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -93,7 +94,7 @@ public class BoardDAO {
 		return list; 
 	}
 	
-	//글이 많아졌을 때 다음페이지로 넘기는 함수
+	//글이 많아졌을 때 다음페이지로 넘기기
 	public boolean nextPage(int pageNumber) {
 		String SQL = "SELECT * FROM board WHERE boardID < ? AND boardAvailable = 1";
 		try {
@@ -109,7 +110,7 @@ public class BoardDAO {
 		return false; 
 		
 	}
-	//작성된 게시글 보기 함수
+	//작성된 게시글 보기
 	public BoardVO getBoardVO(int boardID) {
 		String SQL = "SELECT * FROM board WHERE boardID = ?";
 		try {
@@ -132,7 +133,7 @@ public class BoardDAO {
 		}
 		return null; 
 	}
-	//업데이트 함수
+	//업데이트
 	public int update(int boardID, String boardTitle, String boardContent) {
 		String SQL = "UPDATE board SET boardTitle = ?, boardContent = ? WHERE boardID = ?";
 		try {
@@ -148,9 +149,9 @@ public class BoardDAO {
 		return -1; //데이터베이스 오류
 
 	}
-	//삭제하기 함수
+	//삭제하기
 	public int delete(int boardID) {
-		String SQL = "UPDATE board SET boardAvailable = 0 WHERE boardID = ?";
+		String SQL = "UPDATE board SET boardAvailable = 0 WHERE boardID = ? ";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, boardID);
@@ -161,11 +162,13 @@ public class BoardDAO {
 		}
 		return -1; //데이터베이스 오류
 	}
+	
+	//검색하기
 	public ArrayList<BoardVO> getSearch(String searchField, String searchText){//특정한 리스트를 받아서 반환
 	      ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 	      String SQL ="SELECT * FROM board WHERE "+searchField.trim();
 	      try {
-	    	  if(searchText != null && !searchText.equals("") ){//이거 빼면 안 나온다ㅜ 왜지?
+	    	  if(searchText != null && !searchText.equals("") ){
 	                SQL +=" LIKE '%"+searchText.trim()+"%' ORDER BY boardID DESC LIMIT 10";
 	            }
 	            PreparedStatement pstmt=conn.prepareStatement(SQL);
@@ -183,7 +186,7 @@ public class BoardDAO {
 	      } catch(Exception e) {
 	         e.printStackTrace();
 	      }
-	      return list;//ㄱㅔ시글 리스트 반환
+	      return list;//리스트 반환
 	   }
 }
 

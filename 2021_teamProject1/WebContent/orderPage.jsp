@@ -12,31 +12,34 @@
 <meta name="viewport" content="width-device-width" , initial-scale="1" charset="UTF-8">
 <title>피자가게</title>
 	
-	<link rel="icon" href="./images/logo-favicon.png">
-	<link rel="stylesheet" href="css/mainPage.css?after">
-	<link rel="stylesheet" href="css/orderPage.css?after">
-	<link href="./css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<script defer src="option/jquery/jquery.min.js"></script>
-	<script defer src="js/scriptForm.js" type="text/javascript"></script>
-	<script defer src="js/order.js" type="text/javascript"></script>
-	<style>
-	.btn-tp span{
-		font-size: 10pt;
-		width: 80px;
-		height: 30px;
-		padding: 5px;
-		margin: 0;
-	}
-	#btn-rq span{
-		font-size: 13pt;
-		width: 100px;
-		height: 40px;
-		padding: 5px;
-		margin: 0;
-		align-items: center;
-	}
-	</style>
+<link rel="icon" href="./images/logo-favicon.png">
+<link rel="stylesheet" href="css/mainPage.css?after">
+<link rel="stylesheet" href="css/orderPage.css?after">
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script defer src="option/jquery/jquery.min.js"></script>
+<script defer src="js/scriptForm.js" type="text/javascript"></script>
+<script defer src="js/order.js" type="text/javascript"></script>
+<style>
+.btn-tp span{
+	font-size: 10pt;
+	width: 80px;
+	height: 30px;
+	padding: 5px;
+	margin: 0;
+}
+#btn-rq span{
+	font-size: 13pt;
+	width: 100px;
+	height: 40px;
+	padding: 5px;
+	margin: 0;
+	align-items: center;
+}
+.form-check-input{
+	accent-color: red;
+}
+</style>
 </head>
 <body>
 

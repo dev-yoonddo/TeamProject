@@ -104,7 +104,7 @@ public class CommentDAO {
 		return list; //데이터베이스 오류
 	}
 	
-	public int update(String cmtContent, int boardID, int cmtID) {
+	/*public int update(String cmtContent, int boardID, int cmtID) {
 		String SQL = "UPDATE comment SET cmtContent = ? WHERE boardID = ? AND cmtID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -116,7 +116,7 @@ public class CommentDAO {
 			e.printStackTrace();
 		}
 		return -1; // 데이터베이스 오류
-	}
+	}*/
 	public CommentVO getCommentVO(int cmtID) {
 		String SQL = "SELECT * FROM comment WHERE cmtID = ?";
 		try {

@@ -1,3 +1,8 @@
+<%@page import="java.io.InputStreamReader"%>
+<%@page import="java.io.BufferedReader"%>
+<%@page import="java.net.HttpURLConnection"%>
+<%@page import="java.net.URL"%>
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="user.UserDAO" %>
@@ -17,6 +22,7 @@
 	<script defer src="option/jquery/jquery.min.js"></script>
   	<script defer src="option/bootstrap/js/bootstrap.bundle.min.js"></script>
   	<script defer src="https://kit.fontawesome.com/f95555e5d8.js" crossorigin="anonymous"></script>
+  	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
   	
 	<!-- map -->
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -321,8 +327,7 @@
 	</footer>
 	<!-- footer end-->
 	
-
-  	
+	
 	<script>
 		//카테고리-매장찾기 클릭했을 때 map-section으로 스크롤하기
 		function searchStore() {
@@ -332,10 +337,8 @@
 		//store 숨기기
 		$('.store').hide();
 		$('.nostore').hide();
-	</script>
-	
-  	<!-- floating banner script -->
-  	<script>
+
+  		//floating banner
 	    $('.floatingBanner .btn-close').on('click', function(){
 	        $(this).parents('.floatingBanner').hide();
 	    });

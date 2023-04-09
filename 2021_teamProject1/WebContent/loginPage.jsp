@@ -1,3 +1,6 @@
+<%@page import="java.math.BigInteger"%>
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.security.SecureRandom"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,23 +19,23 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 	<script defer src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 	<script defer src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	
-</head>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+	</head>
 
 
 <!-- login/register style -->
 <style type="text/css">
 
-
+section{
+	display: flex;
+	padding-top: 100px;
+	padding-bottom: 150px;
+}
 .login-section{
 	padding: 0;
-	margin: 0;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-top: 50px;
-	padding-bottom: 150px;
+	margin: 0 auto;
+	width: 400px;
+	
 }
 .login-form{
 	padding: 0;
@@ -43,6 +46,15 @@
 	padding: 0;
 	margin: 0;
 	width: 190px;
+}
+.naver-login{
+	display: flex;
+	justify-content: center;
+}
+#naver_id_login{
+	padding: 0;
+	margin: 20px;
+	width: 300px;
 }
 </style>
 
@@ -90,7 +102,7 @@
 			<button type="submit" class="btn-black" ><span>확인</span></button>&nbsp;&nbsp;&nbsp;&nbsp;
 			<button type="button" class="btn-black" onclick="location.href='joinPage.jsp'"><span>회원가입</span></button>
 		</div>
-		</form>
+		</form><hr style="width: 400px;">
 	</div>
 </div>
 </section>
@@ -117,69 +129,6 @@
 </footer>
 <!-- footer end-->
  
- 
-<!-- login script -->
-<script type="text/javascript">
-
-$(function(){
-    $('.button-checkbox').each(function(){
-		var $widget = $(this),
-			$button = $widget.find('button'),
-			$checkbox = $widget.find('input:checkbox'),
-			color = $button.data('color'),
-			settings = {
-					on: {
-						icon: 'glyphicon glyphicon-check'
-					},
-					off: {
-						icon: 'glyphicon glyphicon-unchecked'
-					}
-			};
-
-		$button.on('click', function () {
-			$checkbox.prop('checked', !$checkbox.is(':checked'));
-			$checkbox.triggerHandler('change');
-			updateDisplay();
-		});
-
-		$checkbox.on('change', function () {
-			updateDisplay();
-		});
-
-		function updateDisplay() {
-			var isChecked = $checkbox.is(':checked');
-			// Set the button's state
-			$button.data('state', (isChecked) ? "on" : "off");
-
-			// Set the button's icon
-			$button.find('.state-icon')
-				.removeClass()
-				.addClass('state-icon ' + settings[$button.data('state')].icon);
-
-			// Update the button's color
-			if (isChecked) {
-				$button
-					.removeClass('btn-default')
-					.addClass('btn-' + color + ' active');
-			}
-			else
-			{
-				$button
-					.removeClass('btn-' + color + ' active')
-					.addClass('btn-default');
-			}
-		}
-		function init() {
-			updateDisplay();
-			// Inject the icon if applicable
-			if ($button.find('.state-icon').length == 0) {
-				$button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
-			}
-		}
-		init();
-	});
-});
-</script>
 </body>
 </html>
 

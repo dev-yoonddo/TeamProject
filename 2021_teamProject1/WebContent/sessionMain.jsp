@@ -322,11 +322,8 @@
 	    		</div>
 	    	</div>
     	</div>
-    	
 	</footer>
 	<!-- footer end-->
-	
-
   	
 	<script>
 		//category: searchStore
