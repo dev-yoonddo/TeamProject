@@ -2,7 +2,7 @@
 국비지원교육 당시 개발한 팀 프로젝트입니다. 
 
 ✔팀 구성 : 인원 3명(프론트엔드 1명, 백엔드 2명)<br>
-✔역할 : 프론트엔드<br>
+✔파트 : 프론트엔드<br>
 ✔기간 : 2주 (프로젝트 종료 이후에도 개인적으로 수정)<br><br><br>
 
 
@@ -13,15 +13,15 @@
 
 ## ❔ 프로젝트를 진행하고 느낀점
 
-짧은 기간동안 목표했던 계획에 맞게 구현한 점과 디자인적인 부분도 놓치지 않은 점은 만족했지만<br>좀더 다양한 페이지에 사용자들이 이용할 수 있는 기능들을 더 구현하지 못한 것이 아쉬워서 계속 기능을 추가할 계획입니다.<br><br><br>
+짧은 기간동안 목표했던 계획에 맞게 구현을 완료한 점과 디자인적인 부분도 놓치지 않은 점은 만족했지만<br>좀더 다양한 페이지에 사용자들이 이용할 수 있는 기능들을 좀 더 구현하지 못한 것이 아쉬웠고 앞으로도 계속 기능을 추가할 계획입니다.<br><br><br>
 
 ## ❔ 기술
 
 - IDE : Eclipse<br>
 - DBMS : MySQL 5.5<br>
 - WAS : Apache Tomcat 8.5<br>
-- Frontend : JavaScript, HTML5, CSS3, Bootstrap<br>
-- Backend : Java, JQuery, Spring
+- Frontend : JavaScript, HTML5, CSS3, JQuery, Bootstrap<br>
+- Backend : Java, Spring
 
 ### DB 관계도
 
