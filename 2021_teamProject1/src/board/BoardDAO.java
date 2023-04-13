@@ -150,6 +150,7 @@ public class BoardDAO {
 
 	}
 	//삭제하기
+	// 1. boardAvailable을 0으로 변경하는 방법
 	public int delete(int boardID) {
 		String SQL = "UPDATE board SET boardAvailable = 0 WHERE boardID = ? ";
 		try {
@@ -163,6 +164,20 @@ public class BoardDAO {
 		return -1; //데이터베이스 오류
 	}
 	
+	/* 
+	//2. 데이터를 아예 삭제하는 방법
+	public int delete(int boardID) {
+		String SQL = "DELETE FROM board WHERE boardID = ? ";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, boardID);
+			//성공적으로 수행했다면 0이상의 결과 반환
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //데이터베이스 오류
+	}*/
 	//검색하기
 	public ArrayList<BoardVO> getSearch(String searchField, String searchText){//특정한 리스트를 받아서 반환
 	      ArrayList<BoardVO> list = new ArrayList<BoardVO>();

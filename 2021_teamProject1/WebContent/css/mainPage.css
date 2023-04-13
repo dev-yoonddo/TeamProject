@@ -273,7 +273,7 @@ img {
 	width: 350px;
 	height: auto;
 }
-
+/* btn-black */
 .btn-black {
   position: relative;
   display: inline-block;
@@ -300,7 +300,6 @@ img {
   border: 1px solid #000000;
 }
 
-/*--- btn-1 ---*/
 .btn-black::before {
   background-color: #000000;
 }

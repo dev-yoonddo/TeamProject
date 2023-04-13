@@ -223,7 +223,7 @@ CommentVO comment = new CommentDAO().getCommentVO(cmtID);
 	                  %>
 	         	</div>  
 	      	</div>
-	
+			<!-- 답변쓰기 버튼을 눌렀을 때만 답변쓰기 섹션이 나타나도록 설정 -->
 			<div id="cmt-write" style="display: none;">
 		      <div class="row">
 		          <form method="post" action="commentAction.jsp?boardID=<%= boardID %>">

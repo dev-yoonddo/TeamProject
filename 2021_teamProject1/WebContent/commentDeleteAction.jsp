@@ -47,7 +47,7 @@
 			script.println("location.href='view.jsp'");
 			script.println("</script>");
 		} else{
-				CommentDAO commentDAO=new CommentDAO();//하나의 인스턴스
+				CommentDAO commentDAO=new CommentDAO();
 				int result=commentDAO.delete(cmtID);
 				if(result == -1){//데이터 베이스 오류가 날 때
 					PrintWriter script=response.getWriter();
