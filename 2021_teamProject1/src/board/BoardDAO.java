@@ -150,7 +150,7 @@ public class BoardDAO {
 
 	}
 	//삭제하기
-	// 1. boardAvailable을 0으로 변경하는 방법
+	//1. boardAvailable을 0으로 변경하는 방법
 	public int delete(int boardID) {
 		String SQL = "UPDATE board SET boardAvailable = 0 WHERE boardID = ? ";
 		try {
@@ -164,7 +164,7 @@ public class BoardDAO {
 		return -1; //데이터베이스 오류
 	}
 	
-	/* 
+	/*
 	//2. 데이터를 아예 삭제하는 방법
 	public int delete(int boardID) {
 		String SQL = "DELETE FROM board WHERE boardID = ? ";
