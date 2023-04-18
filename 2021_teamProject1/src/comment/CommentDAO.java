@@ -67,6 +67,7 @@ public class CommentDAO {
 		}
 		return -1; //데이터베이스 오류
 	}
+	/*
 	public String getUpdateComment(int cmtID) {
 		String SQL = "SELECT cmtContent FROM comment WHERE cmtID = ?";
 		try {
@@ -81,6 +82,8 @@ public class CommentDAO {
 		}
 		return ""; //오류
 	}
+	*/
+	//작성된 댓글 목록 출력
 	public ArrayList<CommentVO> getList(int boardID){
 		String SQL = "SELECT * FROM comment WHERE boardID= ? AND cmtAvailable = 1 ORDER BY boardID DESC LIMIT 10"; 
 		ArrayList<CommentVO> list = new ArrayList<CommentVO>();
@@ -103,7 +106,7 @@ public class CommentDAO {
 		}
 		return list; //데이터베이스 오류
 	}
-	
+	//수정하기
 	/*public int update(String cmtContent, int boardID, int cmtID) {
 		String SQL = "UPDATE comment SET cmtContent = ? WHERE boardID = ? AND cmtID = ?";
 		try {
@@ -117,6 +120,8 @@ public class CommentDAO {
 		}
 		return -1; // 데이터베이스 오류
 	}*/
+	
+	//작성된 댓글 보기
 	public CommentVO getCommentVO(int cmtID) {
 		String SQL = "SELECT * FROM comment WHERE cmtID = ?";
 		try {
@@ -138,6 +143,22 @@ public class CommentDAO {
 		}
 		return null;
 	}
+	//삭제하기
+	//1.cmtAvailable = 0 으로 변경하는 방법
+	public int delete(int cmtID) {
+		String SQL = "UPDATE comment SET cmtAvailable = 0 WHERE cmtID = ? ";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, cmtID);
+			//성공적으로 수행했다면 0이상의 결과 반환
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //데이터베이스 오류
+	}
+	/*
+	//2. 데이터를 아예 삭제하는 방법
 	public int delete(int cmtID) {
 		String SQL = "DELETE FROM comment WHERE cmtID = ?";
 		try {
@@ -149,7 +170,7 @@ public class CommentDAO {
 		}
 		return -1; // 데이터베이스 오류
 	}
-	
+	*/
 	
 	
 }

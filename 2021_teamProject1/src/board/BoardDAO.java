@@ -54,7 +54,7 @@ public class BoardDAO {
 	
 	//글 작성하기
 	public int write(String boardTitle, String userID, String boardContent) {
-		String SQL = "INSERT INTO board VALUES(?, ?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO board VALUES (?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext());
@@ -110,6 +110,7 @@ public class BoardDAO {
 		return false; 
 		
 	}
+	
 	//작성된 게시글 보기
 	public BoardVO getBoardVO(int boardID) {
 		String SQL = "SELECT * FROM board WHERE boardID = ?";
@@ -178,16 +179,19 @@ public class BoardDAO {
 		}
 		return -1; //데이터베이스 오류
 	}*/
+	
 	//검색하기
+	//글을 검색했을 때 삭제된 글은 출력되지 않도록 한다.
 	public ArrayList<BoardVO> getSearch(String searchField, String searchText){//특정한 리스트를 받아서 반환
 	      ArrayList<BoardVO> list = new ArrayList<BoardVO>();
-	      String SQL ="SELECT * FROM board WHERE "+searchField.trim();
+	      String SQL = "SELECT * FROM board WHERE boardAvailable = 1 AND "+ searchField.trim(); //삭제되지 않은 글
 	      try {
-	    	  if(searchText != null && !searchText.equals("") ){
-	                SQL +=" LIKE '%"+searchText.trim()+"%' ORDER BY boardID DESC LIMIT 10";
-	            }
-	            PreparedStatement pstmt=conn.prepareStatement(SQL);
-				rs=pstmt.executeQuery();//select
+	          if (searchText != null && !searchText.isEmpty()) {
+	        	  SQL += " LIKE '%" + searchText.trim() + "%' ORDER BY boardID DESC LIMIT 10";
+	          }
+	              
+	        	  PreparedStatement pstmt = conn.prepareStatement(SQL);
+	              rs = pstmt.executeQuery();
 	         while(rs.next()) {
 	        	BoardVO board = new BoardVO();
 	        	board.setBoardID(rs.getInt(1));
@@ -203,5 +207,6 @@ public class BoardDAO {
 	      }
 	      return list;//리스트 반환
 	   }
+	
 }
 

@@ -138,7 +138,7 @@ String id = (String) session.getAttribute("userID"); // Object 타입이므로 �
 		<h4 style="font-weight: bold; color: #646464;">문의목록</h4><br>
 		</div>
 		<div class="row">
-			<table class="table table-striped" style="text-align: center; border: 3px solid #ffffff; ">
+			<table class="table table-striped" style="text-align: center;">
 				<thead>
 					<tr>
 						<th style="background-color: #464646; text-align: center;">번호</th>

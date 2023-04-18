@@ -43,8 +43,8 @@
 				script.println("</script>");
 				
 				}else{
-					BoardDAO bdDAO = new BoardDAO();
-					int result = bdDAO.write(board.getBoardTitle(), userID, board.getBoardContent());
+					BoardDAO boardDAO = new BoardDAO();
+					int result = boardDAO.write(board.getBoardTitle(), userID, board.getBoardContent());
 					if(result == -1){
 						PrintWriter script = response.getWriter();
 						script.println("<script>");

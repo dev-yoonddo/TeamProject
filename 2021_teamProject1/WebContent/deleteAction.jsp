@@ -4,6 +4,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="board.BoardDAO" %>
 <%@ page import="board.BoardVO" %>
+<%@ page import="comment.CommentVO" %>
+<%@ page import="comment.CommentDAO" %>
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 
@@ -56,6 +58,19 @@
 				script.println("</script>");
 			}
 			else {
+				int cmtID = 0;
+				if(session.getAttribute("cmtID") != null){
+					cmtID = Integer.parseInt(request.getParameter("cmtID"));
+					CommentDAO cmtDAO = new CommentDAO();
+					int result2 = cmtDAO.delete(cmtID);
+					if(result2 == -1){
+						PrintWriter script = response.getWriter();
+						script.println("<script>");
+						script.println("alert('글의 댓글 삭제에 실패했습니다.')");
+						script.println("history.back()");
+						script.println("</script>");
+					}
+				}
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('삭제가 완료되었습니다.')");

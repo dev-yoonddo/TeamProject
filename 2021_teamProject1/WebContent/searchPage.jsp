@@ -184,9 +184,12 @@ a:hover{
 			<button type="button" id="prev" class="btn-black" onclick="location.href='customerPage.jsp?pageNumber=<%=pageNumber - 1%>'"><span>&lt;</span></button>
 			
 		<% 
-			} if(boardDAO.nextPage(pageNumber + 1)){ 
+			}
 		%>
-			<button type="button" id="next" class="btn-black" onclick="location.href='customerPage.jsp?pageNumber=<%=pageNumber + 1%>'"><span>&gt;</span></button>
+		<%
+			if(list.size() > 10){ 
+		%>
+			<button type="button" id="next" class="btn-black" onclick="location.href='customerPage.jsp?'"><span>&gt;</span></button>
 						
 		<%
 			}
@@ -198,6 +201,7 @@ a:hover{
 			<button type="button" class="btn-black" id="write" onclick="location.href='write.jsp'"><span>글쓰기</span></button>
 		<% 
 			}
+			
 		%>
 	</div>
 </section>
