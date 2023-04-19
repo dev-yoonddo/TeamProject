@@ -1,11 +1,11 @@
 <%@page import="comment.CommentDAO"%>
-<%@page import="comment.CommentVO"%>
+<%@page import="comment.CommentDTO"%>
 <%@page import="user.UserDAO"%>
-<%@page import="user.UserVO"%>
+<%@page import="user.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="board.BoardVO" %>
+<%@ page import="board.BoardDTO" %>
 <%@ page import="board.BoardDAO" %>
 <%@ page import="file.FileDAO" %>
 <%@ page import="java.io.File" %>
@@ -48,7 +48,7 @@
 </style>
 <body>
 <%
-//userID 가져오기
+	//userID 가져오기
 String userID = null;
 if(session.getAttribute("userID") != null){
 	userID = (String) session.getAttribute("userID");
@@ -71,8 +71,8 @@ if(boardID == 0){
 	script.println("</script>");
 }
 
-BoardVO board = new BoardDAO().getBoardVO(boardID);
-CommentVO comment = new CommentDAO().getCommentVO(cmtID);
+BoardDTO board = new BoardDAO().getBoardVO(boardID);
+CommentDTO comment = new CommentDAO().getCommentVO(cmtID);
 %>
 
 <!-- header -->
@@ -95,14 +95,14 @@ CommentVO comment = new CommentDAO().getCommentVO(cmtID);
 		</ul>
 		
 		<!-- 로그인 -->
-		<%	
+		<%
 			}else{
 		%>
 		<ul class="login">
-			<li style="font-size: 10pt; color: red;"><%=userID %> 님<br>안녕하세요&nbsp;&nbsp;&nbsp;&nbsp;</li>
+			<li style="font-size: 10pt; color: red;"><%=userID%> 님<br>안녕하세요&nbsp;&nbsp;&nbsp;&nbsp;</li>
 			<li class="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</li>
 		</ul>
-		<% 
+		<%
 			}
 		%>
 	</div>
@@ -121,16 +121,16 @@ CommentVO comment = new CommentDAO().getCommentVO(cmtID);
 		<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>
 		
 		<!-- 로그인 -->
-		<%	
+		<%
 			}else{
 		%>
 		<li class="btn2" onclick="location.href='sessionMain.jsp'">메인</li>
 		<li class="btn2" onclick="location.href='orderPage.jsp'">주문하기</li>
 		<li class="btn2" onclick="location.href='sessionMain.jsp'">매장찾기</li>
 		<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>			
-		<% 
-			}
-		%>
+		<%
+						}
+					%>
 	</ul>
 	<hr><br>
 </div>
@@ -152,51 +152,51 @@ CommentVO comment = new CommentDAO().getCommentVO(cmtID);
 					<tbody>
 						<tr>
 							<td class="td" style="width:20%;">글 제목</td>
-							<td colspan="2"><%= board.getBoardTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></td>
+							<td colspan="2"><%=board.getBoardTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></td>
 						</tr>
 						<tr>
 							<td class="td">작성자</td>
-							<td colspan="2"><%= board.getUserID() %></td>
+							<td colspan="2"><%=board.getUserID()%></td>
 						</tr>
 						<tr>
 							<td class="td">작성일자</td>
-							<td colspan="2"><%= board.getBoardDate().substring(0 ,11) + board.getBoardDate().substring(11, 13) + "시" + board.getBoardDate().substring(14, 16) + "분" %></td>
+							<td colspan="2"><%=board.getBoardDate().substring(0 ,11) + board.getBoardDate().substring(11, 13) + "시" + board.getBoardDate().substring(14, 16) + "분"%></td>
 						</tr>
 						<tr>
 							<td class="td">내용</td>
 							<!-- 특수문자 처리 -->
-							<td colspan="2" style="min-height: 200px; text-align: left;"><%= board.getBoardContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></td>
+							<td colspan="2" style="min-height: 200px; text-align: left;"><%=board.getBoardContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			
 			<button type="button" class="btn-black" onclick="location.href='customerPage.jsp'"><span>목록</span></button>
-			<% 
+			<%
 				if(userID != null){
-					if(userID.equals("admin")){
+						if(userID.equals("admin")){
 			%>
 			
 						<button type="button" class="btn-black" id="cmt-write-btn" onclick="cmtAction()"><span>답변쓰기</span></button>
 					
 			<%
-					}else if(userID.equals(board.getUserID())){
-			%>
-						<button type="button" class="btn-black" onclick="location.href='update.jsp?boardID=<%= boardID%>'"><span>수정</span></button>
-						<button type="button" class="btn-black" id="btn-del" onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='deleteAction.jsp?boardID=<%= boardID%>'}"><span>삭제</span></button>
+									}else if(userID.equals(board.getUserID())){
+								%>
+						<button type="button" class="btn-black" onclick="location.href='update.jsp?boardID=<%=boardID%>'"><span>수정</span></button>
+						<button type="button" class="btn-black" id="btn-del" onclick="if(confirm('정말로 삭제하시겠습니까?')){location.href='deleteAction.jsp?boardID=<%=boardID%>'}"><span>삭제</span></button>
 						<button type="button" class="btn-black" id="cmt-write-btn" onclick="cmtAction()"><span>답변쓰기</span></button>
-			<% 
-					}
+			<%
 				}
+					}
 			%>
 			</div>
 			<div class="cmt-view">
 	         	<div class="row">
 	         		<h5 style="font-size: 15pt; color: #646464; float: left;">답변<br></h5><hr style="width: 1000px;">
 	                <%
-	                   CommentDAO cmtDAO = new CommentDAO();
-	                   ArrayList<CommentVO> list = cmtDAO.getList(boardID);
-	                   for(int i=0; i<list.size(); i++){
+	                	CommentDAO cmtDAO = new CommentDAO();
+	                	                   ArrayList<CommentDTO> list = cmtDAO.getList(boardID);
+	                	                   for(int i=0; i<list.size(); i++){
 	                %>
 	               	<table class="table table-striped" style="table-layout: fixed;">
 	               		<tr style="">

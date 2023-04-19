@@ -2,9 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="board.BoardDAO" %>
-<%@ page import="board.BoardVO" %>
+<%@ page import="board.BoardDTO" %>
 <%@ page import="java.io.PrintWriter" %>
-<% request.setCharacterEncoding("UTF-8"); %>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 
 <%@ page import="file.FileDAO" %>
 <%@ page import="java.io.File" %>
@@ -12,7 +14,7 @@
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 
-<jsp:useBean id="board" class="board.BoardVO" scope="page"/>
+<jsp:useBean id="board" class="board.BoardDTO" scope="page"/>
 <jsp:setProperty property="boardTitle" name="board"/>
 <jsp:setProperty property="boardContent" name="board"/>
 

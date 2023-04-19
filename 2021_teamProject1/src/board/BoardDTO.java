@@ -1,6 +1,6 @@
 package board;
 
-public class BoardVO {
+public class BoardDTO {
 	private int boardID;
 	private String boardTitle;
 	private String userID;

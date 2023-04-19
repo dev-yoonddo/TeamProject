@@ -45,7 +45,7 @@ public class UserDAO {
 		return -2;
 	}
 	
-	public int join(UserVO user) {
+	public int join(UserDTO user) {
 		try {
 			String SQL ="INSERT INTO USER VALUES (?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(SQL);

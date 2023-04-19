@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="board.BoardDAO" %>
-<%@ page import="board.BoardVO" %>
+<%@ page import="board.BoardDTO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,32 +27,32 @@
 <body>
 		
 	<%
-	String userID = null;
-	if(session.getAttribute("userID") != null){
-		userID = (String) session.getAttribute("userID");
-	}
-	//글이 유효한지 검사
-	int boardID = 0;
-	if(request.getParameter("boardID") != null){
-		boardID = Integer.parseInt(request.getParameter("boardID"));
-		
-	}
-	BoardVO board = new BoardDAO().getBoardVO(boardID);
-	/*if(boardID == 0){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('유효하지 않은 글입니다.')");
-		script.println("location.href = 'customerPage.jsp'");
-		script.println("</script>");
-	}
-	if(!userID.equals(board.getUserID())){
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('권한이 없습니다.')");
-		script.println("location.href = 'customerPage.jsp'");
-		script.println("</script>");
-	}*/
-	%>
+				String userID = null;
+				if(session.getAttribute("userID") != null){
+					userID = (String) session.getAttribute("userID");
+				}
+				//글이 유효한지 검사
+				int boardID = 0;
+				if(request.getParameter("boardID") != null){
+					boardID = Integer.parseInt(request.getParameter("boardID"));
+					
+				}
+				BoardDTO board = new BoardDAO().getBoardVO(boardID);
+				/*if(boardID == 0){
+					PrintWriter script = response.getWriter();
+					script.println("<script>");
+					script.println("alert('유효하지 않은 글입니다.')");
+					script.println("location.href = 'customerPage.jsp'");
+					script.println("</script>");
+				}
+				if(!userID.equals(board.getUserID())){
+					PrintWriter script = response.getWriter();
+					script.println("<script>");
+					script.println("alert('권한이 없습니다.')");
+					script.println("location.href = 'customerPage.jsp'");
+					script.println("</script>");
+				}*/
+			%>
 	<!-- header start-->
 	<header id="header" >
 	<!-- header 위 -->

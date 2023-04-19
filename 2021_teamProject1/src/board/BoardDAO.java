@@ -71,15 +71,15 @@ public class BoardDAO {
 		return -1; //데이터베이스 오류
 	}
 	//글 목록 출력
-	public ArrayList<BoardVO> getList(int pageNumber){
+	public ArrayList<BoardDTO> getList(int pageNumber){
 		String SQL = "SELECT * FROM board WHERE boardID < ? AND boardAvailable = 1 ORDER BY boardID DESC LIMIT 10";
-		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				BoardVO board = new BoardVO();
+				BoardDTO board = new BoardDTO();
 				board.setBoardID(rs.getInt(1));
 				board.setBoardTitle(rs.getString(2));
 				board.setUserID(rs.getString(3));
@@ -112,14 +112,14 @@ public class BoardDAO {
 	}
 	
 	//작성된 게시글 보기
-	public BoardVO getBoardVO(int boardID) {
+	public BoardDTO getBoardVO(int boardID) {
 		String SQL = "SELECT * FROM board WHERE boardID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, boardID);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				BoardVO board = new BoardVO();
+				BoardDTO board = new BoardDTO();
 				board.setBoardID(rs.getInt(1));
 				board.setBoardTitle(rs.getString(2));
 				board.setUserID(rs.getString(3));
@@ -182,8 +182,8 @@ public class BoardDAO {
 	
 	//검색하기
 	//글을 검색했을 때 삭제된 글은 출력되지 않도록 한다.
-	public ArrayList<BoardVO> getSearch(String searchField, String searchText){//특정한 리스트를 받아서 반환
-	      ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+	public ArrayList<BoardDTO> getSearch(String searchField, String searchText){//특정한 리스트를 받아서 반환
+	      ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 	      String SQL = "SELECT * FROM board WHERE boardAvailable = 1 AND "+ searchField.trim(); //삭제되지 않은 글
 	      try {
 	          if (searchText != null && !searchText.isEmpty()) {
@@ -193,7 +193,7 @@ public class BoardDAO {
 	        	  PreparedStatement pstmt = conn.prepareStatement(SQL);
 	              rs = pstmt.executeQuery();
 	         while(rs.next()) {
-	        	BoardVO board = new BoardVO();
+	        	BoardDTO board = new BoardDTO();
 	        	board.setBoardID(rs.getInt(1));
 	        	board.setBoardTitle(rs.getString(2));
 	        	board.setUserID(rs.getString(3));

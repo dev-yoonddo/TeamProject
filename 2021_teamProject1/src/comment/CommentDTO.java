@@ -1,6 +1,6 @@
 package comment;
 
-public class CommentVO {
+public class CommentDTO {
 	private String cmtContent;
 	private int cmtID;
 	private String userID;

@@ -2,9 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="board.BoardDAO" %>
-<%@ page import="board.BoardVO" %>
+<%@ page import="board.BoardDTO" %>
 <%@ page import="java.util.ArrayList" %>
-<% request.setCharacterEncoding("UTF-8"); %>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -47,24 +49,23 @@ a:hover{
 <body>
 	<%
 		String userID = null;
-		if (session.getAttribute("userID") != null) {//주어진 userID에 연결된 속성값을 얻어낸다.
-			userID = (String) session.getAttribute("userID");
-		}
-		if (request.getParameter("searchField") == "0" || request.getParameter("searchText") == null
-				|| request.getParameter("searchField").equals("0")
-				|| request.getParameter("searchText").equals("")) {
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('입력이 안 된 사항이 있습니다.')");
-			script.println("history.back()");
-			script.println("</script>");
-		}
-		//현재 페이지가 몇번째 페이지 인가
-		int pageNumber = 1;//기본적으로 1페이지
-		if (request.getParameter("pageNumber") != null){
-			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-		}
-
+			if (session.getAttribute("userID") != null) {//주어진 userID에 연결된 속성값을 얻어낸다.
+		userID = (String) session.getAttribute("userID");
+			}
+			if (request.getParameter("searchField") == "0" || request.getParameter("searchText") == null
+			|| request.getParameter("searchField").equals("0")
+			|| request.getParameter("searchText").equals("")) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('입력이 안 된 사항이 있습니다.')");
+		script.println("history.back()");
+		script.println("</script>");
+			}
+			//현재 페이지가 몇번째 페이지 인가
+			int pageNumber = 1;//기본적으로 1페이지
+			if (request.getParameter("pageNumber") != null){
+		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+			}
 	%>
 <!-- header -->
 <header id="header" >
@@ -83,14 +84,14 @@ a:hover{
 				<li class="btn1" onclick="location.href='loginPage.jsp'">로그인&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				<li class="btn1" onclick="location.href='joinPage.jsp'">회원가입<li>
 			</ul>
-			<%	
+			<%
 				}else{
 			%>
 			<ul class="login">
-				<li style="font-size: 10pt; color: red;"><%=userID %> 님<br>안녕하세요&nbsp;&nbsp;&nbsp;&nbsp;</li>
+				<li style="font-size: 10pt; color: red;"><%=userID%> 님<br>안녕하세요&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				<li class="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</li>
 			</ul>
-			<% 
+			<%
 				}
 			%>
 		</div>
@@ -106,16 +107,16 @@ a:hover{
 			<li class="btn2" onclick="loginOK()">주문하기</li>
 			<li class="btn2" onclick="location.href='mainPage.jsp'">매장찾기</li>
 			<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>			
-			<%	
-				}else{
-			%>
+			<%
+							}else{
+						%>
 			<li class="btn2" onclick="location.href='sessionMain.jsp'">메인</li>
 			<li class="btn2" onclick="location.href='orderPage.jsp'">주문하기</li>
 			<li class="btn2" onclick="location.href='sessionMain.jsp'">매장찾기</li>
 			<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>			
-			<% 
-				}
-			%>
+			<%
+							}
+						%>
 		</ul>
 		<hr>
 	</div>
@@ -153,18 +154,19 @@ a:hover{
 					</tr>
 				</thead>
 				<tbody>
-					<% //customerPage의 객체 이름과 같아야한다.
-						BoardDAO boardDAO = new BoardDAO();
-						ArrayList<BoardVO> list = boardDAO.getSearch(request.getParameter("searchField"),
-								request.getParameter("searchText"));
-						if (list.size() == 0) {
-							PrintWriter script = response.getWriter();
-							script.println("<script>");
-							script.println("alert('검색결과가 없습니다.')");
-							script.println("history.back()");
-							script.println("</script>");
-						}
-						for (int i = 0; i < list.size(); i++) {
+					<%
+						//customerPage의 객체 이름과 같아야한다.
+									BoardDAO boardDAO = new BoardDAO();
+									ArrayList<BoardDTO> list = boardDAO.getSearch(request.getParameter("searchField"),
+											request.getParameter("searchText"));
+									if (list.size() == 0) {
+										PrintWriter script = response.getWriter();
+										script.println("<script>");
+										script.println("alert('검색결과가 없습니다.')");
+										script.println("history.back()");
+										script.println("</script>");
+									}
+									for (int i = 0; i < list.size(); i++) {
 					%>
 					<tr>
 						<td style="background-color: #ffffff"><%= list.get(i).getBoardID() %></td>

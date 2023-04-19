@@ -2,9 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="board.BoardDAO" %>
-<%@ page import="board.BoardVO" %>
+<%@ page import="board.BoardDTO" %>
 <%@ page import="java.util.ArrayList" %>
-<% request.setCharacterEncoding("UTF-8"); %>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -47,7 +49,7 @@ a:hover{
 
 <body>
 <%
-String userID = null;
+	String userID = null;
 if(session.getAttribute("userID") != null){
 	userID = (String) session.getAttribute("userID");
 } //로그인 확인 후 id값 얻어오기
@@ -56,10 +58,12 @@ if(request.getParameter("pageNumber") != null){
 	pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 }
 %>
-<%/* 
+<%
+	/* 
 // 세션값 가져오기
 String id = (String) session.getAttribute("userID"); // Object 타입이므로 다운캐스팅
-*/%>
+*/
+%>
 
 <!-- header -->
 <header id="header" >
@@ -78,14 +82,14 @@ String id = (String) session.getAttribute("userID"); // Object 타입이므로 �
 				<li class="btn1" onclick="location.href='loginPage.jsp'">로그인&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				<li class="btn1" onclick="location.href='joinPage.jsp'">회원가입<li>
 			</ul>
-			<%	
+			<%
 				}else{
 			%>
 			<ul class="login">
-				<li style="font-size: 10pt; color: red;"><%=userID %> 님<br>안녕하세요&nbsp;&nbsp;&nbsp;&nbsp;</li>
+				<li style="font-size: 10pt; color: red;"><%=userID%> 님<br>안녕하세요&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				<li class="btn1" onclick="location.href='sessionLogout.jsp'">로그아웃</li>
 			</ul>
-			<% 
+			<%
 				}
 			%>
 		</div>
@@ -101,16 +105,16 @@ String id = (String) session.getAttribute("userID"); // Object 타입이므로 �
 			<li class="btn2" onclick="loginOK()">주문하기</li>
 			<li class="btn2" onclick="location.href='mainPage.jsp'">매장찾기</li>
 			<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>			
-			<%	
-				}else{
-			%>
+			<%
+							}else{
+						%>
 			<li class="btn2" onclick="location.href='sessionMain.jsp'">메인</li>
 			<li class="btn2" onclick="location.href='orderPage.jsp'">주문하기</li>
 			<li class="btn2" onclick="location.href='sessionMain.jsp'">매장찾기</li>
 			<li class="btn2" onclick="location.href='customerPage.jsp'">고객센터</li>			
-			<% 
-				}
-			%>
+			<%
+							}
+						%>
 		</ul>
 		<hr>
 	</div>
@@ -150,8 +154,8 @@ String id = (String) session.getAttribute("userID"); // Object 타입이므로 �
 				<tbody>
 					<%
 						BoardDAO boardDAO = new BoardDAO();
-						ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
-						for(int i = 0; i < list.size(); i++){
+									ArrayList<BoardDTO> list = boardDAO.getList(pageNumber);
+									for(int i = 0; i < list.size(); i++){
 					%>
 					<tr>
 						<td style="background-color: #ffffff"><%= list.get(i).getBoardID() %></td>

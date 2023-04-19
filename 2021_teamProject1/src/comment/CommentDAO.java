@@ -84,15 +84,15 @@ public class CommentDAO {
 	}
 	*/
 	//작성된 댓글 목록 출력
-	public ArrayList<CommentVO> getList(int boardID){
+	public ArrayList<CommentDTO> getList(int boardID){
 		String SQL = "SELECT * FROM comment WHERE boardID= ? AND cmtAvailable = 1 ORDER BY boardID DESC LIMIT 10"; 
-		ArrayList<CommentVO> list = new ArrayList<CommentVO>();
+		ArrayList<CommentDTO> list = new ArrayList<CommentDTO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, boardID);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				CommentVO cmt = new CommentVO();
+				CommentDTO cmt = new CommentDTO();
 				cmt.setCmtContent(rs.getString(1));
 				cmt.setCmtID(rs.getInt(2));
 				cmt.setUserID(rs.getString(3));
@@ -122,14 +122,14 @@ public class CommentDAO {
 	}*/
 	
 	//작성된 댓글 보기
-	public CommentVO getCommentVO(int cmtID) {
+	public CommentDTO getCommentVO(int cmtID) {
 		String SQL = "SELECT * FROM comment WHERE cmtID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1,  cmtID);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				CommentVO cmt = new CommentVO();
+				CommentDTO cmt = new CommentDTO();
 				cmt.setCmtContent(rs.getString(1));
 				cmt.setCmtID(rs.getInt(2));
 				cmt.setUserID(rs.getString(3));
