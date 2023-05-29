@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="comment.CommentDAO"%>
 <%@page import="comment.CommentDTO"%>
 <%@page import="user.UserDAO"%>
@@ -171,6 +172,21 @@ CommentDTO comment = new CommentDAO().getCommentVO(cmtID);
 				</table>
 			</div>
 			
+			<%
+					String uploadDirectory = application.getRealPath("./upload/");
+				//	list(): 지정된 디렉토리(폴더)에 저장된 파일 목록을 얻어온다.
+					String[] files = new File(uploadDirectory).list();
+					out.println("업로드된 파일 목록<br/>");
+					for (String file : files) {
+				//		out.println(file + "<br/>");
+				%>
+				
+				<a href="<%=request.getContextPath()%>/downloadAction?file=<%=URLEncoder.encode(file, "UTF-8")%>"><%=file%></a><br/>
+				
+				<%
+					}
+				%>
+				
 			<button type="button" class="btn-black" onclick="location.href='customerPage.jsp'"><span>목록</span></button>
 			<%
 				if(userID != null){
